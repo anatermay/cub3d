@@ -20,11 +20,12 @@ INCLUDES 		= -I$(MLX42)/include -I$(LIBFT)/include -I$(FT_PRINTF) -Iincludes
 SOURCES_DIRECTORY 		= ./sources
 OBJECTS_DIRECTORY 		= ./objects
 
-SOURCES_FILES 		= 	0_main.c \
+SOURCES_FILES 		= 	main.c \
 						0_parser.c \
 						1_init_game.c \
 						2_init_file.c \
 						3_gnl_file.c \
+						4_coord_count.c \
 						u_gnl.c \
 						u_memfree.c \
 						u_print.c \

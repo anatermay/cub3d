@@ -6,13 +6,13 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:31:22 by aternero          #+#    #+#             */
-/*   Updated: 2025/08/28 11:14:47 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/01 18:44:22 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header_files/cub3d.h"
 
-void	increase_snake(t_file **file, t_file *new)
+static void	increase_snake(t_file **file, t_file *new)
 {
 	t_file	*temp;
 
@@ -33,7 +33,7 @@ void	increase_snake(t_file **file, t_file *new)
 	}
 }
 
-t_file	*new_file_node(char *line, char *path)
+static t_file	*new_file_node(char *line, char *path)
 {
 	t_file	*file;
 
@@ -44,7 +44,7 @@ t_file	*new_file_node(char *line, char *path)
 		return (NULL);
 	}
 	file->line = ft_strdup(line);
-	file->space = is_space(file->line[0]);
+	file->space = is_space_array(line);
 	file->path = ft_strdup(path);
 	file->next = NULL;
 	return (file);
@@ -68,6 +68,12 @@ char	**map_file_content(char *str)
 	if (fd == FALSE)
 		return (NULL);
 	file_content(file, fd);
+	if (!file || !file[0])
+	{
+		free(file);
+		print_error(EEMPTYFILE);
+		return (NULL);
+	}
 	return (file);
 }
 
@@ -88,8 +94,7 @@ t_file	*init_file(char **content, char *path)
 		{
 			if (file)
 				free_file(&file);
-			if (content[index])
-				array_free(content);
+			array_free(content);
 			return (NULL);
 		}
 		increase_snake(&file, temp);

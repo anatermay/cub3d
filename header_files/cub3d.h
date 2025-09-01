@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:24:08 by aternero          #+#    #+#             */
-/*   Updated: 2025/08/28 11:07:44 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/01 18:21:11 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_texture
 typedef struct s_vert
 {
 	char	id;
-	char	**id_name;
+	char	**lines;
 	int		red;
 	int		green;
 	int		blue;
@@ -44,7 +44,8 @@ typedef struct s_vert
 typedef struct s_coord
 {
 	char		id;
-	char		**id_name;
+	char		*id_name;
+	char		**lines;
 	t_texture	*tex;
 	int			events;
 }	t_coord;
@@ -84,15 +85,24 @@ typedef struct s_game
 }	t_game;
 
 //	**	FUNCTIONS	**
-	//	INIT
+	//	PARSER
 int		cub_extension(char *str);
+int		real_parse(t_game *game);
+int		parser_main(t_game **game, char **argv, int argc);
+
+	//	INIT GAME
 t_game	*init_game(char *argv);
-t_file	*init_file(char **content, char *path);
+
+	//	INIT FILE
 char	**map_file_content(char *str);
+t_file	*init_file(char **content, char *path);
+
+	//	GNL FILE
 int		file_dimensions(int fd);
 char	**file_content(char **file, int fd);
-t_file	*new_file_node(char *line, char *path);
-void	increase_snake(t_file **file, t_file *new);
+
+	//	COORD COUNT
+void	coord_count(t_game *game, char *id);
 
 	//	UTILS
 void	array_free(char **array);
@@ -100,6 +110,7 @@ void	free_file(t_file **file);
 void	free_game(t_game *game);
 int		print_error(char *msg);
 int		is_space(char c);
+int		is_space_array(char *str);
 int		open_fd(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 14:01:01 by aternero          #+#    #+#             */
-/*   Updated: 2025/08/27 14:17:14 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/01 18:21:18 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,18 @@ void	free_game(t_game *game)
 	if (!game)
 		return ;
 	free_file(&game->file);
+	if (game->north)
+		free(game->north);
+	if (game->south)
+		free(game->south);
+	if (game->east)
+		free(game->east);
+	if (game->west)
+		free(game->west);
+	if (game->floor)
+		free(game->floor);
+	if (game->ceil)
+		free(game->ceil);
 	free(game);
 }
 

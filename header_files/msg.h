@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 12:32:31 by aternero          #+#    #+#             */
-/*   Updated: 2025/08/27 12:32:32 by aternero         ###   ########.fr       */
+/*   Updated: 2025/08/28 13:24:39 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define EEMPTYFILE "The .cub file is empty."          // El archivo .cub no contiene ninguna información
 
 // ---------- Texturas ----------
+# define EID	 "Missing or duplicated element identifier." // Falta o está duplicado un identificador de elemento (textura, color)
 # define ENOTEX  "Missing north texture (NO)."         // Falta la textura para el norte (NO)
 # define ESOTEX  "Missing south texture (SO)."         // Falta la textura para el sur (SO)
 # define EWETEX  "Missing west texture (WE)."          // Falta la textura para el oeste (WE)
