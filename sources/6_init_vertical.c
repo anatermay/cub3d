@@ -1,48 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_coord_count.c                                    :+:      :+:    :+:   */
+/*   6_init_vertical.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/28 12:13:51 by aternero          #+#    #+#             */
-/*   Updated: 2025/08/28 12:35:00 by aternero         ###   ########.fr       */
+/*   Created: 2025/09/03 17:55:01 by aternero          #+#    #+#             */
+/*   Updated: 2025/09/10 19:07:46 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header_files/cub3d.h"
 
-static void	add_coord_count(t_game *game, char *id)
+static void	*this_file_free(t_vert *vert, char *argv)
 {
-	if (ft_strncmp(id, NORTH, 2) == 0)
-		game->north->events++;
-	if (ft_strncmp(id, SOUTH, 2) == 0)
-		game->south->events++;
-	if (ft_strncmp(id, WEST, 2) == 0)
-		game->west->events++;
-	if (ft_strncmp(id, EAST, 2) == 0)
-		game->east->events++;
+	if (vert)
+		free(vert);
+	(void)argv;
+	/* if (argv)
+		free(argv); */
+	return (NULL);
 }
 
-void	coord_count(t_game *game, char *id)
+static void	vert_count(t_game *game, t_vert *vert, char id)
 {
 	t_file	*file;
-	char	i;
-	char	d;
 	int		index;
 
 	file = game->file;
-	i = id[0];
-	d = id[1];
 	while (file)
 	{
 		index = -1;
 		while (file->line[++index])
 		{
-			if (file->line[index] == i
-				&& (file->line[index + 1] && file->line[index + 1] == d))
-				add_coord_count(game, id);
+			if (file->line[index] == id)
+				vert->events++;
 		}
 		file = file->next;
 	}
+}
+
+t_vert	*init_vertical(t_game *game, char id, char *argv)
+{
+	t_vert	*vert;
+
+	vert = (t_vert *)malloc(sizeof(t_vert));
+	if (!vert)
+	{
+		print_error(EMALLOC);
+		return (this_file_free(vert, argv));
+	}
+	vert->id = id;
+	vert->red = -1;
+	vert->green = -1;
+	vert->blue = -1;
+	vert_count(game, vert, id);
+	return (vert);
 }

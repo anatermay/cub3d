@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u_gnl.c                                            :+:      :+:    :+:   */
+/*   u_arraylen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/28 11:06:20 by aternero          #+#    #+#             */
-/*   Updated: 2025/08/28 11:13:50 by aternero         ###   ########.fr       */
+/*   Created: 2025/09/01 20:10:16 by aternero          #+#    #+#             */
+/*   Updated: 2025/09/01 20:12:08 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header_files/cub3d.h"
 
-int	open_fd(char *str)
+int	array_length(char **array)
 {
-	int	fd;
+	int	len;
 
-	fd = open(str, O_RDONLY);
-	if (fd <= 0)
-		return (print_error(EOPEN));
-	return (fd);
+	len = 0;
+	while (array[len])
+		len++;
+	return (len);
 }

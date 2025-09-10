@@ -1,3 +1,10 @@
 *.o
 *.a
 .vscode
+cub3d
+.DS_Store
+.idea
+*.swp
+*.out
+tester.sh
+*.txt

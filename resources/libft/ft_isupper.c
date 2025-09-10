@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 13:05:52 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/04 20:02:32 by aternero         ###   ########.fr       */
+/*   Created: 2025/09/03 18:35:34 by aternero          #+#    #+#             */
+/*   Updated: 2025/09/03 18:36:43 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header_files/cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isupper(char c)
 {
-	t_game	*game;
-
-	game = parser_main(argv[1], argc);
-	if (!game)
+	if (c >= 'A' && c <= 'Z')
 		return (1);
-	ft_printf("YOU CAN PLAY!\n");
-	free_game(game);
 	return (0);
 }

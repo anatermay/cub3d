@@ -1,48 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_gnl_file.c                                       :+:      :+:    :+:   */
+/*   5_count_coord.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/28 11:15:05 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/01 18:43:41 by aternero         ###   ########.fr       */
+/*   Created: 2025/08/28 12:13:51 by aternero          #+#    #+#             */
+/*   Updated: 2025/09/03 19:44:24 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header_files/cub3d.h"
 
-char	**file_content(char **file, int fd)
+void	coord_count(t_game *game, t_coord *coord, char *id)
 {
-	char	*new;
+	t_file	*file;
+	char	i;
+	char	d;
 	int		index;
 
-	new = get_next_line(fd);
-	index = 0;
-	while (new)
+	file = game->file;
+	i = id[0];
+	d = id[1];
+	while (file)
 	{
-		file[index++] = ft_strdup(new);
-		free(new);
-		new = get_next_line(fd);
+		index = -1;
+		while (file->line[++index])
+		{
+			if (file->line[index] == i
+				&& (file->line[index + 1] && file->line[index + 1] == d))
+				coord->events++;
+		}
+		file = file->next;
 	}
-	file[index] = NULL;
-	close(fd);
-	return (file);
-}
-
-int	file_dimensions(int fd)
-{
-	char	*new;
-	int		count;
-
-	new = get_next_line(fd);
-	count = 0;
-	while (new)
-	{
-		count++;
-		free(new);
-		new = get_next_line(fd);
-	}
-	close (fd);
-	return (count);
 }

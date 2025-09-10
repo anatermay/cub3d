@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 21:22:23 by aternero          #+#    #+#             */
-/*   Updated: 2024/04/22 22:13:05 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/04 19:49:06 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strdup(const char *s1)
 	char	*box;
 	size_t	len;
 
+	if (!s1)
+		return (0);
 	len = ft_strlen(s1) + 1;
 	box = malloc(len);
 	if (box == 0)

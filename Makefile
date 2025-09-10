@@ -20,16 +20,24 @@ INCLUDES 		= -I$(MLX42)/include -I$(LIBFT)/include -I$(FT_PRINTF) -Iincludes
 SOURCES_DIRECTORY 		= ./sources
 OBJECTS_DIRECTORY 		= ./objects
 
-SOURCES_FILES 		= 	main.c \
-						0_parser.c \
-						1_init_game.c \
-						2_init_file.c \
-						3_gnl_file.c \
-						4_coord_count.c \
-						u_gnl.c \
-						u_memfree.c \
-						u_print.c \
-						u_space.c
+SOURCES_FILES 		= 	main.c\
+						0_parser.c\
+						1_init_game.c\
+						2_init_file.c\
+						3_gnl_to_file.c\
+						4_init_coordinates.c\
+						5_count_coord.c\
+						6_init_vertical.c\
+						7_sorting.c\
+						8_process_data.c\
+						9_process_coordinates.c\
+						10_process_vertical.c\
+						pu_ids.c\
+						pu_length.c\
+						pu_memfree.c\
+						pu_print.c\
+						pu_space.c\
+						pu_split.c
 
 OBJECTS 			= $(addprefix $(OBJECTS_DIRECTORY)/, $(SOURCES_FILES:.c=.o))
 
@@ -80,6 +88,10 @@ re: fclean all
 	@echo "MAKE RE\t\t\t. . . OK"
 
 .PHONY: all clean fclean re
+
+valgrind: $(NAME)
+	@clear
+	@valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(NAME) maps/map_0.cub
 
 # *** THE END _____________________________________________________________*** #
 

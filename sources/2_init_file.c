@@ -6,13 +6,21 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:31:22 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/01 18:44:22 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/04 21:04:25 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header_files/cub3d.h"
 
-static void	increase_snake(t_file **file, t_file *new)
+static void	*this_file_free(t_file **file, char **array)
+{
+	if (file && *file)
+		free_file(file);
+	array_free(array);
+	return (NULL);
+}
+
+static void	join_to_structure(t_file **file, t_file *new)
 {
 	t_file	*temp;
 
@@ -50,33 +58,6 @@ static t_file	*new_file_node(char *line, char *path)
 	return (file);
 }
 
-char	**map_file_content(char *str)
-{
-	char	**file;
-	int		fd;
-
-	fd = open_fd(str);
-	if (fd == FALSE)
-		return (NULL);
-	file = (char **)malloc((file_dimensions(fd) + 1) * sizeof(char *));
-	if (!file)
-	{
-		print_error(EMALLOC);
-		return (NULL);
-	}
-	fd = open_fd(str);
-	if (fd == FALSE)
-		return (NULL);
-	file_content(file, fd);
-	if (!file || !file[0])
-	{
-		free(file);
-		print_error(EEMPTYFILE);
-		return (NULL);
-	}
-	return (file);
-}
-
 t_file	*init_file(char **content, char *path)
 {
 	t_file	*file;
@@ -91,13 +72,8 @@ t_file	*init_file(char **content, char *path)
 	{
 		temp = new_file_node(content[index], path);
 		if (!temp)
-		{
-			if (file)
-				free_file(&file);
-			array_free(content);
-			return (NULL);
-		}
-		increase_snake(&file, temp);
+			return (this_file_free(&file, content));
+		join_to_structure(&file, temp);
 		index++;
 	}
 	return (file);
