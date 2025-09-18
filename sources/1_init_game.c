@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 12:38:44 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/10 19:43:42 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:18:25 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ t_game	*init_game(char *argv)
 		return (this_file_free(game, file, TRUE));
 	if (init_game_continue(game, argv) == FALSE)
 		return (this_file_free(game, file, TRUE));
+	game->map = NULL;
 	this_file_free(NULL, file, FALSE);
 	return (game);
 }

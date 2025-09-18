@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 18:12:25 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/10 20:18:31 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:22:02 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ static int	process_tex(t_coord *coord, char *line)
 	index = 0;
 	while (is_space(line[index]) == TRUE)
 		index++;
-	if (line[index] != '.' && line[index + 1] != '/' && !line[index + 2])
+	if (ft_strncmp(line + index, "./", 2) != 0)
 		return (print_error(ETEX));
+	else if (ft_strncmp(line + index, "./", 2) == 0 && !line[index + 2])
+		return (print_error(ETEXINV));
 	coord->tex = (t_texture *)malloc(sizeof(t_texture));
 	if (!coord->tex)
 		return (print_error(EMALLOC));
-	coord->tex->tex = ft_strdup(line);
+	coord->tex->tex = space_strtrim(line);
 	if (!coord->tex->tex)
 	{
 		free(coord->tex);

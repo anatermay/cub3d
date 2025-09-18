@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u_gnl.c                                            :+:      :+:    :+:   */
+/*   3_gnl_to_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 11:06:20 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/03 17:45:04 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/17 18:10:46 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static char	**file_content(char **file, int fd)
 	while (new)
 	{
 		file[index++] = ft_strdup(new);
+		if (!file[index])
+			return (NULL);
 		free(new);
 		new = get_next_line(fd);
 	}

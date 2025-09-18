@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:31:22 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/04 21:04:25 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/17 18:01:16 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,18 @@ static void	*this_file_free(t_file **file, char **array)
 static void	join_to_structure(t_file **file, t_file *new)
 {
 	t_file	*temp;
+	t_file	*save;
 
 	if (!new)
 		return ;
+	save = *file;
+	while (save && save->next != NULL)
+		save = save->next;
 	if (!(*file))
 	{
 		*file = new;
 		new->next = NULL;
+		new->prev = NULL;
 	}
 	else
 	{
@@ -38,6 +43,7 @@ static void	join_to_structure(t_file **file, t_file *new)
 			temp = temp->next;
 		temp->next = new;
 		new->next = NULL;
+		new->prev = save;
 	}
 }
 

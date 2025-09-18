@@ -6,11 +6,18 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 13:18:32 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/10 19:59:12 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/17 19:07:21 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header_files/cub3d.h"
+
+int	is_position(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (TRUE);
+	return (FALSE);
+}
 
 int	is_vert(char *str)
 {

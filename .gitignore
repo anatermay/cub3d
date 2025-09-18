@@ -8,3 +8,5 @@ cub3d
 *.out
 tester.sh
 *.txt
+*.md
+*.sh

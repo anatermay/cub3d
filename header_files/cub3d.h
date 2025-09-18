@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:24:08 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/10 20:42:08 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:56:10 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <fcntl.h>
 # include "macros.h"
 # include "msg.h"
+# include "../MLX42/include/MLX42/MLX42.h"
+//# include "./MLX42/MLX42.h"
 
 //	**	STRUCTURES	**
 
@@ -66,6 +68,7 @@ typedef struct s_file
 	char			*line;
 	bool			space;
 	struct s_file	*next;
+	struct s_file	*prev;
 }	t_file;
 
 typedef struct s_map
@@ -123,21 +126,53 @@ int		process_coordinates(t_game *game, char **line);
 //	10_process_vertical.c
 int		process_vertical(t_game *game, char **line);
 
+// 11_process_map.c
+int		process_map(t_game *game, t_file *start);
+
+// 12_extract_map.c
+char **extract_map(t_file *file, t_file *start);
+
+// 13_map_check.c
+int		map_check(t_game *game);
+
+// 14_valid_characters.c
+int		valid_characters(char **map);
+
+//	15_single_player.c
+int		single_player(char **map);
+
+//	16_validation_walls.c
+int	validation_walls(char **map);
+
+//	17_flood_fill.c
+int	re_recheck(char **map, t_dim dim);
+
 //	[ PARSER ] Utils
 	/***	IDENTIFIERS	***/
+int		is_position(char c);
 int		is_vert(char *str);
 int		is_coord(char *str);
 	/***	LENGTH	***/
 int		array_length(char **array);
+	/***	LINES	***/
+int	valid_special_row(char *map);
+int	first_row(char **map, int index);
+int	first_column(char *map, int index);
+int	last_row(char **map, int yndex);
+int	last_column(char *map, int yndex);
 	/***	MEMORY AND FREE	***/
 void	*array_free(char **array);
 void	*free_game(t_game *game);
 void	*free_file(t_file **file);
+void	*free_map(t_map *map);
+	/***	PLAYER POSITION	***/
+t_dim	player_position(t_game *game, char **map);
 	/***	PRINT	***/
 int		print_error(char *msg);
 	/***	SPACE	***/
 int		is_space(char c);
 int		is_space_array(char *str);
+char	*space_strtrim(char *str);
 	/***	SPLIT ***/
 char	**u_split(char const *str);
 

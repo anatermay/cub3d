@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 12:32:31 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/10 20:37:19 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:11:22 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@
 # define EMAPORDER  "Map must be the last element in the file." // El mapa no está en la última posición dentro del archivo
 # define EMISSINGELEM "Missing required element. Expected: NO, SO, WE, EA, F, C" // Falta un elemento requerido
 # define ENOMAP     "No map found after required elements." // No se encontró mapa después de los elementos requeridos
+# define EPP	"More than one starting position has been detected."
+# define EMCHR	"Invalid character in the map"
+# define EMPPOS	"Invalid place for player position"
+# define EWALLS "The map must be surrounded by walls."
+# define EPPO "No starting position detected."
 
 // ---------- Formato / líneas ----------
 # define ELINE  "Malformed line in .cub file."         // Línea con formato incorrecto en el archivo .cub

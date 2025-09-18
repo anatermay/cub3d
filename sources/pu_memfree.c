@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 14:01:01 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/04 20:05:47 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/17 18:51:41 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	*free_game(t_game *game)
 	free_coords(game->west);
 	free_vert(game->floor);
 	free_vert(game->ceil);
+	free_map(game->map);
 	if (game)
 		free(game);
 	game = NULL;
