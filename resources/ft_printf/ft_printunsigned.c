@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printunsigned.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:41 by aternero          #+#    #+#             */
-/*   Updated: 2024/06/25 21:28:24 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/21 14:33:38 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_printunsigned(unsigned int nb)
 		write(1, "2147483648", 10);
 		value = value + 10;
 	}
-	else if (nb >= 0)
+	else
 		value = value + ft_continueun(nb);
 	return (value);
 }
