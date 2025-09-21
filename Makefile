@@ -9,7 +9,7 @@
 
 # *** THE INIT ____________________________________________________________*** #
 
-NAME 					= cub3d
+NAME 					= cub3D
 CC 						= cc
 CFLAGS 					= -Wall -Werror -Wextra -g
 MLX42 					= ./MLX42
