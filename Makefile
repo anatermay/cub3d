@@ -16,7 +16,7 @@ MLX42 					= ./MLX42
 LIBFT 					= ./resources/libft
 FT_PRINTF				= ./resources/ft_printf
 INCLUDES 				= -I$(MLX42)/include -I$(LIBFT)/include -I$(FT_PRINTF) -Iincludes
-LIBS 					= -L$(MLX42)/lib -lmlx42 -lglfw -ldl -lm -lpthread -L$(LIBFT) -lft -L$(FT_PRINTF) -lftprintf
+LIBS 					= -L$(MLX42)/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm  -L$(LIBFT) -lft -L$(FT_PRINTF) -lftprintf
 
 SOURCES_DIRECTORY 		= ./sources
 OBJECTS_DIRECTORY 		= ./objects
@@ -56,9 +56,14 @@ $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.c
 	@mkdir -p $(OBJECTS_DIRECTORY)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(NAME): $(LIBFT)/libft.a $(FT_PRINTF)/libftprintf.a $(OBJECTS)
+$(NAME): $(LIBFT)/libft.a $(FT_PRINTF)/libftprintf.a $(MLX42)/build/libmlx42.a $(OBJECTS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBS)
 	@echo "CUB3D: MAKE\t\t\t\t. . . OK"
+
+$(MLX42)/build/libmlx42.a:
+	@cmake -S $(MLX42) -B $(MLX42)/build
+	@cmake --build $(MLX42)/build -j4
+	@echo "CUB3D: MLX42\t\t\t\t. . . OK"
 
 $(LIBFT)/libft.a:
 	@$(MAKE) -C $(LIBFT) > /dev/null
@@ -83,6 +88,7 @@ fclean:
 	@$(RM) -r $(OBJECTS_DIRECTORY)
 	@$(MAKE) -C $(LIBFT) fclean > /dev/null
 	@$(MAKE) -C $(FT_PRINTF) fclean > /dev/null
+	@$(RM) -rf $(MLX42)/build
 	@$(RM) $(NAME)
 	@$(RM) sources/*.o
 	@echo "CUB3D: MAKE FCLEAN\t\t\t. . . OK"
