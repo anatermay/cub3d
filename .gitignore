@@ -7,6 +7,3 @@ cub3d
 *.swp
 *.out
 tester.sh
-*.txt
-*.md
-*.sh
