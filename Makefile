@@ -17,44 +17,45 @@ LIBFT 					= ./resources/libft
 FT_PRINTF				= ./resources/ft_printf
 INCLUDES 				= -I$(MLX42)/include -I$(LIBFT)/include -I$(FT_PRINTF) -Iincludes
 LIBS 					= -L$(MLX42)/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm  -L$(LIBFT) -lft -L$(FT_PRINTF) -lftprintf
+HEADERS					= -I./header_files
 
 SOURCES_DIRECTORY 		= ./sources
 OBJECTS_DIRECTORY 		= ./objects
 
 SOURCES_FILES 			= main.c\
-							0_parser.c\
-							1_init_game.c\
-							2_init_file.c\
-							3_gnl_to_file.c\
-							4_init_coordinates.c\
-							5_count_coord.c\
-							6_init_vertical.c\
-							7_sorting.c\
-							8_process_data.c\
-							9_process_coordinates.c\
-							10_process_vertical.c\
-							11_process_map.c\
-							12_extract_map.c\
-							13_map_check.c\
-							14_valid_characters.c\
-							15_single_player.c\
-							16_validation_walls.c\
-							17_flood_fill.c\
-							pu_ids.c\
-							pu_length.c\
-							pu_lines.c\
-							pu_memfree.c\
-							pu_memfree1.c\
-							pu_player_position.c\
-							pu_print.c\
-							pu_space.c\
-							pu_split.c
+							parser/0_parser.c\
+							parser/1_init_game.c\
+							parser/2_init_file.c\
+							parser/3_gnl_to_file.c\
+							parser/4_init_coordinates.c\
+							parser/5_count_coord.c\
+							parser/6_init_vertical.c\
+							parser/7_sorting.c\
+							parser/8_process_data.c\
+							parser/9_process_coordinates.c\
+							parser/10_process_vertical.c\
+							parser/11_process_map.c\
+							parser/12_extract_map.c\
+							parser/13_map_check.c\
+							parser/14_valid_characters.c\
+							parser/15_single_player.c\
+							parser/16_validation_walls.c\
+							parser/17_flood_fill.c\
+							parser_utils/pu_ids.c\
+							parser_utils/pu_length.c\
+							parser_utils/pu_lines.c\
+							parser_utils/pu_memfree.c\
+							parser_utils/pu_memfree1.c\
+							parser_utils/pu_player_position.c\
+							parser_utils/pu_print.c\
+							parser_utils/pu_space.c\
+							parser_utils/pu_split.c
 
 OBJECTS 			= $(addprefix $(OBJECTS_DIRECTORY)/, $(SOURCES_FILES:.c=.o))
 
 $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.c
-	@mkdir -p $(OBJECTS_DIRECTORY)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@mkdir -p $(dir $@)
+	@$(CC) $(HEADERS) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(LIBFT)/libft.a $(FT_PRINTF)/libftprintf.a $(MLX42)/build/libmlx42.a $(OBJECTS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBS)
