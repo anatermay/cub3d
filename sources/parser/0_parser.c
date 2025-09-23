@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 11:16:03 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/17 18:27:36 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/23 19:02:53 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	real_parse(t_game *game)
 	return (TRUE);
 }
 
-static int	cub_extension(char *str)
+int	cub_extension(char *str)
 {
 	if (ft_strlen(str) < 5
 		|| ft_strncmp(str + ft_strlen(str) - 4, ".cub", 4) != 0)
@@ -36,17 +36,10 @@ static int	cub_extension(char *str)
 	return (TRUE);
 }
 
-t_game	*parser_main(char *argv, int argc)
+t_game	*parser_main(char *argv)
 {
 	t_game	*game;
 
-	if (argc != 2)
-	{
-		print_error(EARGC);
-		return (NULL);
-	}
-	if (cub_extension(argv) == FALSE)
-		return (NULL);
 	game = init_game(argv);
 	if (!game)
 		return (NULL);
@@ -55,5 +48,7 @@ t_game	*parser_main(char *argv, int argc)
 		free_game(game);
 		return (NULL);
 	}
+	load_image(game);
+	texture_to_image(game);
 	return (game);
 }

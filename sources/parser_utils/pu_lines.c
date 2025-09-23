@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 19:22:33 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/18 19:57:03 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/23 19:24:35 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	first_column(char *map, int index)
 
 	y = 0;
 	while (map[y] && is_space(map[y]) == TRUE)
-			y++;
+		y++;
 	if (index == y)
 		return (TRUE);
 	return (FALSE);

@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 18:48:47 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/18 19:44:49 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/23 19:18:47 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static int	recheck_walls(char **map)
 			dim.x = -1;
 			while (map[dim.y][++dim.x])
 			{
-				if ((first_column(map[dim.y], dim.x) == TRUE
-					|| last_column(map[dim.y], dim.x) == TRUE)
-					&& map[dim.y][dim.x] != '1')
+				if (map[dim.y][dim.x] != '1'
+					&& (first_column(map[dim.y], dim.x) == TRUE
+						|| last_column(map[dim.y], dim.x) == TRUE))
 					return (print_error(EWALLS));
 			}
 		}

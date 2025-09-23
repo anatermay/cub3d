@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:27:13 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/17 18:29:27 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/23 19:20:24 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	sorting(t_game *game)
 		}
 		temp = temp->next;
 	}
-	if (lines > 0 || !game->north->tex || !game->south->tex || 
-		!game->east->tex || !game->west->tex ||
-		game->floor->red == -1 || game->ceil->red == -1)
+	if (lines > 0 || !game->north->tex || !game->south->tex
+		|| !game->east->tex || !game->west->tex || game->floor->red == -1
+		|| game->ceil->red == -1)
 		return (print_error(EMISSINGELEM));
 	if (process_map(game, temp) == FALSE)
 		return (FALSE);

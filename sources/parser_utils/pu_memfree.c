@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 14:01:01 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/17 18:51:41 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/23 19:24:45 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ void	*free_game(t_game *game)
 	free_vert(game->floor);
 	free_vert(game->ceil);
 	free_map(game->map);
-	if (game)
-		free(game);
+	free(game);
 	game = NULL;
 	return (NULL);
 }
@@ -89,7 +88,6 @@ void	*array_free(char **array)
 	while (array[index])
 	{
 		free(array[index]);
-		array[index] = NULL;
 		index++;
 	}
 	free(array);

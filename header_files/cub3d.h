@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:24:08 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/18 19:56:10 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/23 19:05:19 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ typedef struct s_boolean
 
 typedef struct s_texture
 {
-	char	*tex;
-	// mlx texture
+	char			*tex;
+	mlx_texture_t	*text;
+	mlx_image_t		*img;
 }	t_texture;
 
 typedef struct s_vert
@@ -89,12 +90,14 @@ typedef struct s_game
 	t_coord	*east;
 	t_vert	*floor;
 	t_vert	*ceil;
+	mlx_t	*mlx;
 }	t_game;
 
 //	**	FUNCTIONS	**
 
 //	0_parser.c
-t_game	*parser_main(char *argv, int argc);
+t_game	*parser_main(char *argv);
+int		cub_extension(char *str);
 
 //	1_init_game.c
 t_game	*init_game(char *argv);
@@ -130,7 +133,7 @@ int		process_vertical(t_game *game, char **line);
 int		process_map(t_game *game, t_file *start);
 
 // 12_extract_map.c
-char **extract_map(t_file *file, t_file *start);
+char **extract_map(t_file *start);
 
 // 13_map_check.c
 int		map_check(t_game *game);
@@ -146,6 +149,10 @@ int	validation_walls(char **map);
 
 //	17_flood_fill.c
 int	re_recheck(char **map, t_dim dim);
+
+//	18_textures_loading.c
+void	load_image(t_game *game);
+void	texture_to_image(t_game *game);
 
 //	[ PARSER ] Utils
 	/***	IDENTIFIERS	***/

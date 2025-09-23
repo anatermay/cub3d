@@ -6,7 +6,7 @@
 #    By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 21:42:42 by aternero          #+#    #+#              #
-#    Updated: 2025/08/27 12:28:19 by aternero         ###   ########.fr        #
+#    Updated: 2025/09/23 18:24:49 by aternero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,16 +27,16 @@ SOURCES = ft_printf.c\
 OBJECTS =  $(SOURCES:.c=.o)
 
 $(NAME): $(OBJECTS)
-	$(AR) $(NAME) $(OBJECTS)
+	@$(AR) $(NAME) $(OBJECTS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS)
+	@rm -f $(OBJECTS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 all: $(NAME)
 

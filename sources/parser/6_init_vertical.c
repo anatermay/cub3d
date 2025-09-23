@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 17:55:01 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/10 19:07:46 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/23 19:19:09 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static void	*this_file_free(t_vert *vert, char *argv)
 	if (vert)
 		free(vert);
 	(void)argv;
-	/* if (argv)
-		free(argv); */
 	return (NULL);
 }
 

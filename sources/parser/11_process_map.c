@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 20:45:04 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/18 19:39:58 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/23 19:10:29 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static t_map	*init_map(t_game *game)
 {
 	t_map	*map;
 
-	map = ft_calloc(1, sizeof(t_map));
+	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
 	{
 		print_error(EMALLOC);
@@ -75,14 +75,11 @@ int	process_map(t_game *game, t_file *start)
 	if (!start)
 		return (print_error(ENOMAP));
 	game->map = init_map(game);
-	game->map->map = extract_map(game->file, start);
+	game->map->map = extract_map(start);
 	if (!game->map->map)
 		return (FALSE);
 	if (map_check(game) == FALSE)
-	{
-		free_game(game);
 		return (FALSE);
-	}
 	game->map->dim = calculate_map_dim(game->map->map);
 	game->map->player = calculate_player_position(game->map->map);
 	if (game->map->player.y == -1 || game->map->player.x == -1)

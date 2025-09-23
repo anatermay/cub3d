@@ -1,0 +1,12 @@
+Error
+	Invalid character in the map
+\n
+Error
+	The .cub file is empty.
+\n
+Error
+	Missing or duplicated element identifier.
+\n
+Error
+	Missing or duplicated element identifier.
+\n

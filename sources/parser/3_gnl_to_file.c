@@ -6,11 +6,24 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 11:06:20 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/17 18:10:46 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/23 18:49:51 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header_files/cub3d.h"
+
+static char	**this_file_frees(char **file, int frees)
+{
+	if (frees == 0)
+		free(file);
+	else
+	{
+		print_error(EEMPTYFILE);
+		if (file)
+			array_free(file);
+	}
+	return (NULL);
+}
 
 static char	**file_content(char **file, int fd)
 {
@@ -21,9 +34,13 @@ static char	**file_content(char **file, int fd)
 	index = 0;
 	while (new)
 	{
-		file[index++] = ft_strdup(new);
+		file[index] = ft_strdup(new);
 		if (!file[index])
+		{
+			close(fd);
 			return (NULL);
+		}
+		index++;
 		free(new);
 		new = get_next_line(fd);
 	}
@@ -75,13 +92,9 @@ char	**map_file_content(char *str)
 	}
 	fd = open_fd(str);
 	if (fd == FALSE)
-		return (NULL);
-	file_content(file, fd);
+		return (this_file_frees(file, 0));
+	file = file_content(file, fd);
 	if (!file || !file[0])
-	{
-		free(file);
-		print_error(EEMPTYFILE);
-		return (NULL);
-	}
+		return (this_file_frees(file, 1));
 	return (file);
 }
