@@ -50,7 +50,8 @@ SOURCES_FILES 			= main.c\
 							parser_utils/pu_player_position.c\
 							parser_utils/pu_print.c\
 							parser_utils/pu_space.c\
-							parser_utils/pu_split.c
+							parser_utils/pu_split.c\
+							game_logic/start_game.c
 
 OBJECTS 			= $(addprefix $(OBJECTS_DIRECTORY)/, $(SOURCES_FILES:.c=.o))
 

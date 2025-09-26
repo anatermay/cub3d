@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 13:05:52 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/23 19:12:45 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/26 12:33:43 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	ft_printf("YOU CAN PLAY!\n");
+	start_game(game);
 	free_game(game);
 	free(path);
 	return (0);
