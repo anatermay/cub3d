@@ -1,7 +1,7 @@
-NO ./textures/player_tex.png
-SO ./textures/player_tex.png
-NO ./textures/player_tex.png
-EA ./textures/player_tex.png
+NO ./textures/test_tex.xpm
+SO ./textures/test_tex.xpm
+WE ./textures/test_tex.xpm
+EA ./textures/test_tex.xpm
 
 F 220,100,0
 C 225,30,0
