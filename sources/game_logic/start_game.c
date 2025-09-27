@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/09/27 12:07:00 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/09/27 12:22:59 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 static void	get_images(t_game *game, t_testing_img *assets)
 {
-	assets->wall_tex = mlx_load_png("textures/wall_wall.png");
-	assets->floor_tex = mlx_load_png("textures/floor_wall.png");
-	assets->player_tex = mlx_load_png("textures/player_wall.png");
+	assets->wall_tex = mlx_load_png("textures/wall_tex.png");
+	assets->floor_tex = mlx_load_png("textures/floor_tex.png");
+	assets->player_tex = mlx_load_png("textures/player_tex.png");
 	assets->wall_img = mlx_texture_to_image(game->mlx, assets->wall_tex);
 	assets->floor_img = mlx_texture_to_image(game->mlx, assets->floor_tex);
 	assets->player_img = mlx_texture_to_image(game->mlx, assets->player_tex);
