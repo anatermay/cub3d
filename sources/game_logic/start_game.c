@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/09/26 22:40:18 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/09/27 12:07:00 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	display_map(t_game *game, t_testing_img *assets)
 		j = 0;
 		while (j < game->map->dim.x)
 		{
-			mlx_image_to_window(game->mlx, assets->floor_tex, j * 64, i * 64);
+			mlx_image_to_window(game->mlx, assets->floor_img, j * 64, i * 64);
 			display_image(game, assets, i, j);
 			j++;
 		}
@@ -59,6 +59,7 @@ void	start_game(t_game *game)
 {
 	t_testing_img	*assets;
 
+	assets = malloc(sizeof(t_testing_img));
 	game->mlx = mlx_init(game->map->dim.x * 64, game->map->dim.y * 64,
                 "cub3D", true);
 	get_images(game, assets);
