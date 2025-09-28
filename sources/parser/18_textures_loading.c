@@ -6,22 +6,44 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:59:35 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/23 19:24:08 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:25:47 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header_files/cub3d.h"
 
+static int	loading_texture_textures(t_coord *coord)
+{
+	if (ft_strncmp(coord->tex->tex, ".png", 4) == 0
+		|| ft_strncmp(coord->tex->tex, ".xpm", 4) == 0)
+	{
+		coord->tex->text = mlx_load_png(coord->tex->tex);
+		if (!coord->tex->text)
+			return (print_error("Texture didn't load"));
+	}
+	else
+	{
+		coord->tex->text = NULL;
+		return (print_error("Texture is not a PNG or XPM"));
+	}
+	return (TRUE);
+}
+
 void	load_image(t_game *game)
 {
-	game->north->tex->text = mlx_load_png(game->north->tex->tex);
-	game->south->tex->text = mlx_load_png(game->south->tex->tex);
-	game->west->tex->text = mlx_load_png(game->west->tex->tex);
-	game->east->tex->text = mlx_load_png(game->east->tex->tex);
-	if (!game->north->tex->text || !game->south->tex->text
-		|| !game->west->tex->text || !game->east->tex->text)
+	int	keep;
+
+	keep = TRUE;
+	while (keep == TRUE)
 	{
-		print_error("Some PNG didn't load");
+		keep = loading_texture_textures(game->north);
+		keep = loading_texture_textures(game->south);
+		keep = loading_texture_textures(game->west);
+		keep = loading_texture_textures(game->east);
+		break ;
+	}
+	if (keep == FALSE)
+	{
 		free_game(game);
 		exit(FALSE);
 	}

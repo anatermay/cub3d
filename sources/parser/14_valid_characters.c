@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 18:52:59 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/17 19:18:49 by aternero         ###   ########.fr       */
+/*   Updated: 2025/09/28 10:55:58 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	valid_characters(char **map)
 		while (map[yndex][++index])
 		{
 			if (is_space(map[yndex][index]) == FALSE
-				&& map[yndex][index] != 0 && map[yndex][index] != 1
+				&& map[yndex][index] != '0' && map[yndex][index] != '1'
 				&& is_position(map[yndex][index]) == FALSE)
 				return (print_error(EMCHR));
 		}

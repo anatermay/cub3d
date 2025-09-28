@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:24:08 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/26 12:43:45 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/09/28 10:26:32 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ int		process_vertical(t_game *game, char **line);
 int		process_map(t_game *game, t_file *start);
 
 // 12_extract_map.c
-char **extract_map(t_file *start);
+char 	**extract_map(t_file *start);
 
 // 13_map_check.c
 int		map_check(t_game *game);
@@ -145,10 +145,10 @@ int		valid_characters(char **map);
 int		single_player(char **map);
 
 //	16_validation_walls.c
-int	validation_walls(char **map);
+int		validation_walls(char **map);
 
 //	17_flood_fill.c
-int	re_recheck(char **map, t_dim dim);
+int		re_recheck(char **map, t_dim dim);
 
 //	18_textures_loading.c
 void	load_image(t_game *game);
@@ -162,11 +162,11 @@ int		is_coord(char *str);
 	/***	LENGTH	***/
 int		array_length(char **array);
 	/***	LINES	***/
-int	valid_special_row(char *map);
-int	first_row(char **map, int index);
-int	first_column(char *map, int index);
-int	last_row(char **map, int yndex);
-int	last_column(char *map, int yndex);
+int		valid_special_row(char *map);
+int		first_row(char **map, int index);
+int		first_column(char *map, int index);
+int		last_row(char **map, int yndex);
+int		last_column(char *map, int yndex);
 	/***	MEMORY AND FREE	***/
 void	*array_free(char **array);
 void	*free_game(t_game *game);
