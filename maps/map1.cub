@@ -3,8 +3,8 @@ SO ./imgs/malaca_01.png
 EA ./imgs/malaca_03.png
 WE ./imgs/malaca_02.png
 
-C 9, 24, 51
-F 48, 27, 104
+C 9,24,51
+F 48,27,104
 
 111111111111
 100000000001

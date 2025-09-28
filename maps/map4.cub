@@ -3,8 +3,8 @@ SO ./imgs/wooden-wall_2_native_american.png
 EA ./imgs/wooden-wall_2_derringer.png
 WE ./imgs/wooden-wall_2_winchester.png
 
-C 9, 24, 51
-F 48, 27, 104
+C 9,24,51
+F 48,27,104
 
 11111111111111111111
 10000000000000000001

@@ -3,8 +3,8 @@ SO ./imgs/wooden_wall_nami.png
 EA ./imgs/wooden_wall_monkey.png
 WE ./imgs/wooden_wall_nico.png
 
-C 9, 24, 51
-F 48, 27, 104
+C 9,24,51
+F 48,27,104
 
 111111111111
 100000000001
