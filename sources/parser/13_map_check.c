@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 20:49:58 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/18 20:08:01 by aternero         ###   ########.fr       */
+/*   Updated: 2025/10/08 20:09:14 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static char	**arraydup(char **map)
 	if (!ret)
 		return (NULL);
 	index = 0;
-	while (map[++index])
-		ret[index] = ft_strdup(map[index]);
-	ret[index + 1] = NULL;
+	while (map[index])
+		ret[index] = ft_strdup(map[index]), index++;
+	ret[index] = NULL;
 	return (ret);
 }
 
@@ -39,8 +39,6 @@ int	map_check(t_game *game)
 	if (valid_characters(game->map->map) == FALSE)
 		return (FALSE);
 	else if (single_player(game->map->map) == FALSE)
-		return (FALSE);
-	else if (validation_walls(game->map->map) == FALSE)
 		return (FALSE);
 	ff = arraydup(game->map->map);
 	if (re_recheck(ff, game->map->dim) == FALSE)

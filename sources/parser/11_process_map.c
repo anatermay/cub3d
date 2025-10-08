@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 20:45:04 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/23 19:10:29 by aternero         ###   ########.fr       */
+/*   Updated: 2025/10/07 20:13:31 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static t_dim	calculate_map_dim(char **map)
 	t_dim	dim;
 	t_dim	temp;
 
+	dim.x = 0;
+	dim.y = 0;
 	temp.y = -1;
 	while (map[++temp.y])
 	{

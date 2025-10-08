@@ -39,9 +39,8 @@ SOURCES_FILES 			= main.c\
 							parser/13_map_check.c\
 							parser/14_valid_characters.c\
 							parser/15_single_player.c\
-							parser/16_validation_walls.c\
-							parser/17_flood_fill.c\
-							parser/18_textures_loading.c\
+							parser/16_flood_fill.c\
+							parser/17_textures_loading.c\
 							parser_utils/pu_ids.c\
 							parser_utils/pu_length.c\
 							parser_utils/pu_lines.c\

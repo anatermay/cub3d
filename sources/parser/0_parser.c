@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 11:16:03 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/23 19:02:53 by aternero         ###   ########.fr       */
+/*   Updated: 2025/10/08 20:09:51 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ t_game	*parser_main(char *argv)
 		return (NULL);
 	}
 	load_image(game);
-	texture_to_image(game);
 	return (game);
 }
