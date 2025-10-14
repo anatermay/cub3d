@@ -12,6 +12,40 @@
 
 #include "../header_files/cub3d.h"
 
+static void	can_apply_direction(t_game *game, char dir)
+{
+	if (dir == 'N')
+		game->map->direction = game->north;
+	else if (dir == 'S')
+		game->map->direction = game->south;
+	else if (dir == 'W')
+		game->map->direction = game->west;
+	else if (dir == 'E')
+		game->map->direction = game->east;
+}
+
+static void	apply_direction(t_game *game)
+{
+	int	yndex;
+	int	index;
+
+	if (!game || !game->map)
+		return ;
+	yndex = -1;
+	while (game->map->map[++yndex])
+	{
+		index = -1;
+		while (game->map->map[yndex][++index])
+		{
+			if (is_position(game->map->map[yndex][index]) == TRUE)
+			{
+				can_apply_direction(game, game->map->map[yndex][index]);
+				return ;
+			}
+		}
+	}
+}
+
 static int	real_parse(t_game *game)
 {
 	t_file	*temp;
@@ -49,5 +83,6 @@ t_game	*parser_main(char *argv)
 		return (NULL);
 	}
 	load_image(game);
+	apply_direction(game);
 	return (game);
 }

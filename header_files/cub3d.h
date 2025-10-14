@@ -77,6 +77,7 @@ typedef struct s_map
 	char	**map;
 	t_dim	dim;
 	t_dim	player;
+	t_coord	*direction;
 }	t_map;
 
 typedef struct s_game
