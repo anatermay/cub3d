@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/11 14:25:07 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/18 12:11:53 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	get_images(t_game *game)
 {
-	game->north->tex->text = mlx_load_png("imgs/wall_01.png");
-	game->south->tex->text = mlx_load_png("imgs/wooden_wall_chopper.png");
-	game->west->tex->text = mlx_load_png("imgs/malaca_01.png");
-	game->east->tex->text = mlx_load_png("imgs/wooden-wall_door.png");
+	game->north->tex->text = mlx_load_png(game->north->tex->tex);
+	game->south->tex->text = mlx_load_png(game->south->tex->tex);
+	game->west->tex->text = mlx_load_png(game->west->tex->tex);
+	game->east->tex->text = mlx_load_png(game->east->tex->tex);
 	game->north->tex->img = mlx_texture_to_image(game->mlx,
 		game->north->tex->text);
 	game->south->tex->img = mlx_texture_to_image(game->mlx,
