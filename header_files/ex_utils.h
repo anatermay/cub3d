@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/18 19:12:57 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/19 01:30:49 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_mini_tex
 
 typedef struct s_ex_utils
 {
+    mlx_t       *mlx;
 	t_mini_tex  mini_tex;
     mlx_image_t *bg;
     uint32_t    c_color;
