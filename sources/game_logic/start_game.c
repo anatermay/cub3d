@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/18 12:11:53 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/18 12:29:15 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ static void	display_map(t_game *game)
 
 void	start_game(t_game *game)
 {
-	game->mlx = mlx_init(game->map->dim.x * 64, game->map->dim.y * 64,
-                "cub3D", true);
+	game->mlx = mlx_init(1920, 1080, "cub3D", true);
 	get_images(game);
 	display_map(game);
 	// mlx_key_hook(game->mlx, key_controller, data_game);
