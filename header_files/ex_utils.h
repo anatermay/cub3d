@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 00:13:39 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 01:08:55 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@ typedef struct  s_ex_utils
     t_player    player;
     t_vector    plane;
 }	t_ex_utils;
+
+typedef struct  s_rayc
+{
+    double      pos_x;
+    t_vector    map;
+	t_vector    dir; 
+}   t_rayc;
+
 
 void	paint_bg(t_game* game, t_ex_utils *ex_utils);
 void	get_images(t_game *game, t_ex_utils *ex_utils);
