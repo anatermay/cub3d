@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 12:32:25 by aternero          #+#    #+#             */
-/*   Updated: 2025/10/18 18:26:10 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/19 23:03:10 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,5 @@
 # define F_NBR 5
 # define CEILING 'C'
 # define C_NBR 6
-
-//  DIMENSIONS
-# define WIDTH 1920
-# define HEIGHT 1080
-
-# define OPACITY 255
 
 #endif

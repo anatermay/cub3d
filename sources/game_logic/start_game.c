@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/19 01:39:01 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 00:23:01 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,29 @@ void	key_controller(struct mlx_key_data key_data, void *param)
 		game->mini_tex.pj.img->instances[0].y += 64;
 }
 
+void	init_player(t_game *game, t_ex_utils *ex_utils)
+{
+	ex_utils->player.pos.x = game->map->player.x;
+	ex_utils->player.pos.y = game->map->player.y;
+	ex_utils->player.dir.x = 0;
+	ex_utils->player.dir.y = 0;
+	ex_utils->player.ori = game->map->direction->id;
+	if (ex_utils->player.ori == 'N')
+		ex_utils->player.dir.x = -1;
+	else if (ex_utils->player.ori == 'S')
+		ex_utils->player.dir.x = 1;
+	else if (ex_utils->player.ori == 'E')
+		ex_utils->player.dir.y = 1;
+	else if (ex_utils->player.ori == 'W')
+		ex_utils->player.dir.y = -1;
+}
+
+void	init_camera(t_ex_utils *ex_utils)
+{
+	ex_utils->plane.x = -(ex_utils->player.dir.y) * tan(FOV * M_PI / 360.0);
+	ex_utils->plane.y = (ex_utils->player.dir.x) * tan(FOV * M_PI / 360.0);
+}
+
 void	start_game(t_game *game)
 {
 	t_ex_utils	*ex_utils;
@@ -39,6 +62,8 @@ void	start_game(t_game *game)
 	ex_utils->mlx = game->mlx;
 	get_images(game, ex_utils);
 	paint_bg(game, ex_utils);
+	init_player(game, ex_utils);
+	init_camera(ex_utils);
 	display_minimap(game, ex_utils);
 	mlx_key_hook(game->mlx, key_controller, ex_utils);
 	mlx_loop(game->mlx);
