@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 18:27:06 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 19:02:38 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,21 @@ static void ex_dda(t_game *game, t_rayc *rayc)
     }
 }
 
+static void calc_wall_height(t_player player, t_rayc *rayc)
+{
+    if (rayc->side.x)
+    {
+        rayc->perp = (rayc->map.x - player.pos.x\
+                        + (1 - rayc->step.x) / 2) / rayc->dir.x;
+    }
+    else
+    {
+        rayc->perp = (rayc->map.y - player.pos.y\
+                        + (1 - rayc->step.y) / 2) / rayc->dir.y;
+    }
+    rayc->wall_h = (int)(HEIGHT / rayc->perp);
+}
+
 void    rayc_loop(t_game *game, t_ex_utils *ex_utils)
 {
     int     x;
@@ -78,5 +93,6 @@ void    rayc_loop(t_game *game, t_ex_utils *ex_utils)
         init_rayc(ex_utils, &rayc, x);
         init_dda(ex_utils, &rayc);
         ex_dda(game, &rayc);
+        calc_wall_height(ex_utils->player, &rayc);
     }
 }
