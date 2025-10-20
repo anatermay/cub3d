@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 01:15:13 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 12:01:00 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	init_rayc(t_ex_utils *ex_utils)
 		rayc->pos_x = 2 * x / (double)WIDTH - 1;
 		rayc->dir.x = ex_utils->player.dir.x + ex_utils->plane.x * rayc->pos_x;
 		rayc->dir.y = ex_utils->player.dir.y + ex_utils->plane.y * rayc->pos_x;
+		rayc->delt.x = fabs(1 / rayc->dir.x);
+		rayc->delt.y = fabs(1 / rayc->dir.y);
 	}
 }
 
