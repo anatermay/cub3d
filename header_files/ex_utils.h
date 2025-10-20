@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 21:36:55 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 21:59:44 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ typedef struct  s_rayc
 
 void	paint_bg(t_game* game, t_ex_utils *ex_utils);
 void	get_images(t_game *game, t_ex_utils *ex_utils);
-void	display_minimap(t_game *game, t_ex_utils *ex_utils);
 void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x);
 
 void    rayc_loop(t_game *game, t_ex_utils *ex_utils);
