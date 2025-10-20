@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 12:51:43 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 18:23:48 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct  s_rayc
     t_vector    map;
     t_vector    step;
     t_vector    dist;
+    t_vector    side;
 }   t_rayc;
 
 

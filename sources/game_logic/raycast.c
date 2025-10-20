@@ -6,11 +6,22 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 13:32:28 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 18:27:06 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ex_utils.h"
+
+static void	init_rayc(t_ex_utils *ex_utils, t_rayc *rayc, int x)
+{
+	rayc->map.x = (int)ex_utils->player.pos.x;
+	rayc->map.y = (int)ex_utils->player.pos.y;
+    rayc->pos_x = 2 * x / (double)WIDTH - 1;
+    rayc->dir.x = ex_utils->player.dir.x + ex_utils->plane.x * rayc->pos_x;
+    rayc->dir.y = ex_utils->player.dir.y + ex_utils->plane.y * rayc->pos_x;
+    rayc->delt.x = fabs(1 / rayc->dir.x);
+    rayc->delt.y = fabs(1 / rayc->dir.y);
+}
 
 static void init_dda(t_ex_utils *ex_utils, t_rayc *rayc)
 {
@@ -30,18 +41,33 @@ static void init_dda(t_ex_utils *ex_utils, t_rayc *rayc)
     }
 }
 
-static void	init_rayc(t_ex_utils *ex_utils, t_rayc *rayc, int x)
+static void ex_dda(t_game *game, t_rayc *rayc)
 {
-	rayc->map.x = (int)ex_utils->player.pos.x;
-	rayc->map.y = (int)ex_utils->player.pos.y;
-    rayc->pos_x = 2 * x / (double)WIDTH - 1;
-    rayc->dir.x = ex_utils->player.dir.x + ex_utils->plane.x * rayc->pos_x;
-    rayc->dir.y = ex_utils->player.dir.y + ex_utils->plane.y * rayc->pos_x;
-    rayc->delt.x = fabs(1 / rayc->dir.x);
-    rayc->delt.y = fabs(1 / rayc->dir.y);
+    int hit;
+
+    hit = 0;
+    while(!hit)
+    {
+        if (rayc->dist.x < rayc->dist.y)
+        {
+            rayc->dist.x += rayc->delt.x;
+            rayc->map.x += rayc->step.x;
+            rayc->side.x = 1;
+            rayc->side.y = 0;
+        }
+        else
+        {
+            rayc->dist.y += rayc->delt.y;
+            rayc->map.y += rayc->step.y;
+            rayc->side.x = 0;
+            rayc->side.y = 1;
+        }
+        if (game->map->map[(int)rayc->map.y][(int)rayc->map.x])
+            hit = 1;
+    }
 }
 
-void    rayc_loop(t_ex_utils *ex_utils)
+void    rayc_loop(t_game *game, t_ex_utils *ex_utils)
 {
     int     x;
     t_rayc  rayc;
@@ -51,5 +77,6 @@ void    rayc_loop(t_ex_utils *ex_utils)
     {
         init_rayc(ex_utils, &rayc, x);
         init_dda(ex_utils, &rayc);
+        ex_dda(game, &rayc);
     }
 }
