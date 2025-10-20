@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 21:34:52 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 21:50:43 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void ex_dda(t_game *game, t_rayc *rayc)
             rayc->side.x = 0;
             rayc->side.y = 1;
         }
-        if (game->map->map[(int)rayc->map.y][(int)rayc->map.x])
+        if (game->map->map[(int)rayc->map.y][(int)rayc->map.x] == '1')
             hit = 1;
     }
 }
