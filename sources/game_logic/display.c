@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/18 19:12:00 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 21:40:40 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,6 @@ void	get_images(t_game *game, t_ex_utils *ex_utils)
 		ex_utils->mini_tex.wall.text);
 	ex_utils->mini_tex.pj.img = mlx_texture_to_image(game->mlx,
 		ex_utils->mini_tex.pj.text);
-}
-
-void	display_minimap(t_game *game, t_ex_utils *ex_utils)
-{
-	int		i;
-	int		j;
-	char	c;
-
-	i = 0;
-	while (i < game->map->dim.y)
-	{
-		j = 0;
-		while (j < game->map->dim.x)
-		{
-			c = game->map->map[i][j];
-			if (c == '1')
-				mlx_image_to_window(game->mlx, ex_utils->mini_tex.wall.img,\
-									j * 64, i * 64);
-			if (c == 'N' || c == 'E' || c == 'W' || c == 'S')
-				mlx_image_to_window(game->mlx, ex_utils->mini_tex.pj.img,\
-									j * 64, i * 64);
-			j++;
-		}
-		i++;
-	}
 }
 
 static void	build_bg(t_game *game, t_ex_utils *ex_utils)
@@ -100,5 +75,24 @@ void	paint_bg(t_game* game, t_ex_utils *ex_utils)
 		}
 		x++;
 	}
-	mlx_image_to_window(game->mlx, ex_utils->bg, 0, 0);
+	//mlx_image_to_window(game->mlx, ex_utils->bg, 0, 0);
+}
+
+void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x)
+{
+	int	color;
+	int	y;
+
+	color = 0xFF0000;
+	rayc->draw_start = -rayc->wall_h / 2 + HEIGHT / 2;
+	if (rayc->draw_start < 0)
+		rayc->draw_start = 0;
+	rayc->draw_end = rayc->wall_h / 2 + HEIGHT / 2;
+	if (rayc->draw_end >= HEIGHT)
+		rayc->draw_end = HEIGHT - 1;
+	if (rayc->side.y)
+		color = 0x880000;
+	y = rayc->draw_start - 1;
+	while (++y < rayc->draw_end)
+		mlx_put_pixel(ex_utils->bg, x, y, color);
 }

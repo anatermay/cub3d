@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 19:02:30 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 21:36:55 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,21 @@ typedef struct  s_rayc
     t_vector    map;
 	t_vector    dir;
     t_vector    delt;
-    t_vector    map;
     t_vector    step;
     t_vector    dist;
     t_vector    side;
     double      perp;
     int         wall_h;
+    int         draw_start;
+    int         draw_end;
 }   t_rayc;
 
 
 void	paint_bg(t_game* game, t_ex_utils *ex_utils);
 void	get_images(t_game *game, t_ex_utils *ex_utils);
 void	display_minimap(t_game *game, t_ex_utils *ex_utils);
+void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x);
+
+void    rayc_loop(t_game *game, t_ex_utils *ex_utils);
 
 #endif

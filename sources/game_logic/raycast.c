@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 19:02:38 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 21:34:52 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,7 @@ void    rayc_loop(t_game *game, t_ex_utils *ex_utils)
         init_dda(ex_utils, &rayc);
         ex_dda(game, &rayc);
         calc_wall_height(ex_utils->player, &rayc);
+        draw_wall(ex_utils, &rayc, x);
     }
+    mlx_image_to_window(game->mlx, ex_utils->bg, 0, 0);
 }
