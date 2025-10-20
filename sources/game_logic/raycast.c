@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 21:50:43 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 23:52:23 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static void init_dda(t_ex_utils *ex_utils, t_rayc *rayc)
     if (rayc->dir.x < 0)
     {
         rayc->step.x = -1;
-        rayc->dist.x = rayc->delt.x - rayc->dist.x;
+        rayc->dist.x = (ex_utils->player.pos.x - rayc->map.x) * rayc->delt.x;
     }
     if (rayc->dir.y < 0)
     {
         rayc->step.y = -1;
-        rayc->dist.y = rayc->delt.y - rayc->dist.y;
+        rayc->dist.y = (ex_utils->player.pos.y - rayc->map.y) * rayc->delt.y;
     }
 }
 
