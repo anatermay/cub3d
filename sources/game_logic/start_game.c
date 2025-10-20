@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 12:01:00 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 12:40:20 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,6 @@ void	init_camera(t_ex_utils *ex_utils)
 {
 	ex_utils->plane.x = -(ex_utils->player.dir.y) * tan(FOV * M_PI / 360.0);
 	ex_utils->plane.y = (ex_utils->player.dir.x) * tan(FOV * M_PI / 360.0);
-}
-
-void	init_rayc(t_ex_utils *ex_utils)
-{
-	int		x;
-	t_rayc	*rayc;
-
-	rayc = malloc(sizeof(t_rayc));
-	rayc->map.x = (int)ex_utils->player.pos.x;
-	rayc->map.y = (int)ex_utils->player.pos.y;
-	x = -1;
-	while (++x < WIDTH)
-	{
-		rayc->pos_x = 2 * x / (double)WIDTH - 1;
-		rayc->dir.x = ex_utils->player.dir.x + ex_utils->plane.x * rayc->pos_x;
-		rayc->dir.y = ex_utils->player.dir.y + ex_utils->plane.y * rayc->pos_x;
-		rayc->delt.x = fabs(1 / rayc->dir.x);
-		rayc->delt.y = fabs(1 / rayc->dir.y);
-	}
 }
 
 void	start_game(t_game *game)
