@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 12:40:20 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 13:31:14 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	start_game(t_game *game)
 	paint_bg(game, ex_utils);
 	init_player(game, ex_utils);
 	init_camera(ex_utils);
-	init_rayc(ex_utils);
+	rayc_loop(ex_utils);
 	display_minimap(game, ex_utils);
 	mlx_key_hook(game->mlx, key_controller, ex_utils);
 	mlx_loop(game->mlx);

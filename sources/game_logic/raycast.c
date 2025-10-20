@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 13:19:15 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/20 13:32:28 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,26 @@ static void init_dda(t_ex_utils *ex_utils, t_rayc *rayc)
     }
 }
 
-void	init_rayc(t_ex_utils *ex_utils)
+static void	init_rayc(t_ex_utils *ex_utils, t_rayc *rayc, int x)
 {
-	int		x;
-	t_rayc	*rayc;
-
-	rayc = malloc(sizeof(t_rayc));
 	rayc->map.x = (int)ex_utils->player.pos.x;
 	rayc->map.y = (int)ex_utils->player.pos.y;
-	x = -1;
-	while (++x < WIDTH)
-	{
-		rayc->pos_x = 2 * x / (double)WIDTH - 1;
-		rayc->dir.x = ex_utils->player.dir.x + ex_utils->plane.x * rayc->pos_x;
-		rayc->dir.y = ex_utils->player.dir.y + ex_utils->plane.y * rayc->pos_x;
-		rayc->delt.x = fabs(1 / rayc->dir.x);
-		rayc->delt.y = fabs(1 / rayc->dir.y);
-        init_dda(ex_utils, rayc);
-	}
+    rayc->pos_x = 2 * x / (double)WIDTH - 1;
+    rayc->dir.x = ex_utils->player.dir.x + ex_utils->plane.x * rayc->pos_x;
+    rayc->dir.y = ex_utils->player.dir.y + ex_utils->plane.y * rayc->pos_x;
+    rayc->delt.x = fabs(1 / rayc->dir.x);
+    rayc->delt.y = fabs(1 / rayc->dir.y);
+}
+
+void    rayc_loop(t_ex_utils *ex_utils)
+{
+    int     x;
+    t_rayc  rayc;
+
+    x = -1;
+    while (++x < WIDTH)
+    {
+        init_rayc(ex_utils, &rayc, x);
+        init_dda(ex_utils, &rayc);
+    }
 }
