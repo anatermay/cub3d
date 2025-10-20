@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/21 00:06:28 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/21 00:29:47 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	start_game(t_game *game)
 	init_player(game, ex_utils);
 	init_camera(ex_utils);
 	rayc_loop(game, ex_utils);
-	printf("%c", ex_utils->player.ori);
 	//mlx_key_hook(game->mlx, key_controller, ex_utils);
 	mlx_loop(game->mlx);
 	// if (game->collected == game->collects_total && game->exit)

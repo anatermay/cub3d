@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 21:40:40 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/21 00:47:38 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ void	paint_bg(t_game* game, t_ex_utils *ex_utils)
 
 void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x)
 {
-	int	color;
-	int	y;
+	uint32_t	color;
+	int			y;
 
-	color = 0xFF0000;
+	color = 0x00FF00FF;
 	rayc->draw_start = -rayc->wall_h / 2 + HEIGHT / 2;
 	if (rayc->draw_start < 0)
 		rayc->draw_start = 0;
@@ -91,7 +91,7 @@ void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x)
 	if (rayc->draw_end >= HEIGHT)
 		rayc->draw_end = HEIGHT - 1;
 	if (rayc->side.y)
-		color = 0x880000;
+		color = 0xFF0000FF;
 	y = rayc->draw_start - 1;
 	while (++y < rayc->draw_end)
 		mlx_put_pixel(ex_utils->bg, x, y, color);
