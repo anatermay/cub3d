@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/21 00:47:38 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/21 22:34:39 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	paint_bg(t_game* game, t_ex_utils *ex_utils)
 		}
 		x++;
 	}
-	//mlx_image_to_window(game->mlx, ex_utils->bg, 0, 0);
 }
 
 void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x)
