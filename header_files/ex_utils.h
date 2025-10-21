@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/21 22:36:37 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/21 22:39:34 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@
 #  define M_PI 3.14159265358979323846
 # endif
 
-
-typedef struct  s_mini_tex
-{
-    t_texture   wall;
-    t_texture   pj;
-}   t_mini_tex;
-
 typedef struct s_vector
 {
     double  x;
@@ -53,7 +46,6 @@ typedef struct  s_player
 typedef struct  s_ex_utils
 {
     mlx_t       *mlx;
-	t_mini_tex  mini_tex;
     mlx_image_t *bg;
     uint32_t    c_color;
     uint32_t    f_color;

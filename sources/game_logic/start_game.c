@@ -6,29 +6,12 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/21 22:36:47 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/21 22:40:31 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "ex_utils.h"
-
-// void	key_controller(struct mlx_key_data key_data, void *param)
-// {
-// 	t_ex_utils	*game;
-
-// 	game = param;
-// 	if (key_data.key == MLX_KEY_ESCAPE)
-// 		mlx_close_window(game->mlx);
-// 	if (key_data.key == MLX_KEY_D && key_data.action == MLX_RELEASE)
-// 		game->mini_tex.pj.img->instances[0].x += 64;
-// 	if (key_data.key == MLX_KEY_A && key_data.action == MLX_RELEASE)
-// 		game->mini_tex.pj.img->instances[0].x -= 64;
-// 	if (key_data.key == MLX_KEY_W && key_data.action == MLX_RELEASE)
-// 		game->mini_tex.pj.img->instances[0].y -= 64;
-// 	if (key_data.key == MLX_KEY_S && key_data.action == MLX_RELEASE)
-// 		game->mini_tex.pj.img->instances[0].y += 64;
-// }
 
 void	init_player(t_game *game, t_ex_utils *ex_utils)
 {
