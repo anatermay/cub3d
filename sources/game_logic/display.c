@@ -6,23 +6,19 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/21 22:34:39 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/21 22:36:14 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "ex_utils.h"
 
-void	get_images(t_game *game, t_ex_utils *ex_utils)
+void	get_images(t_game *game)
 {
-	ex_utils->mini_tex.wall.tex = "./imgs/minimap/mini_wall.png";
-	ex_utils->mini_tex.pj.tex = "./imgs/minimap/mini_pj.png";
 	game->north->tex->text = mlx_load_png(game->north->tex->tex);
 	game->south->tex->text = mlx_load_png(game->south->tex->tex);
 	game->west->tex->text = mlx_load_png(game->west->tex->tex);
 	game->east->tex->text = mlx_load_png(game->east->tex->tex);
-	ex_utils->mini_tex.wall.text = mlx_load_png(ex_utils->mini_tex.wall.tex);
-	ex_utils->mini_tex.pj.text = mlx_load_png(ex_utils->mini_tex.pj.tex);
 	game->north->tex->img = mlx_texture_to_image(game->mlx,
 		game->north->tex->text);
 	game->south->tex->img = mlx_texture_to_image(game->mlx,
@@ -31,10 +27,6 @@ void	get_images(t_game *game, t_ex_utils *ex_utils)
 		game->west->tex->text);
 	game->east->tex->img = mlx_texture_to_image(game->mlx,
 		game->east->tex->text);
-	ex_utils->mini_tex.wall.img = mlx_texture_to_image(game->mlx,
-		ex_utils->mini_tex.wall.text);
-	ex_utils->mini_tex.pj.img = mlx_texture_to_image(game->mlx,
-		ex_utils->mini_tex.pj.text);
 }
 
 static void	build_bg(t_game *game, t_ex_utils *ex_utils)

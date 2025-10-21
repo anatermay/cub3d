@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/21 00:29:47 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/10/21 22:36:47 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	start_game(t_game *game)
 	ex_utils = malloc(sizeof(t_ex_utils));
 	game->mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true);
 	ex_utils->mlx = game->mlx;
-	get_images(game, ex_utils);
+	get_images(game);
 	paint_bg(game, ex_utils);
 	init_player(game, ex_utils);
 	init_camera(ex_utils);
