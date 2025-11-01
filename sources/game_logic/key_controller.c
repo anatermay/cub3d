@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 20:33:36 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/01 19:47:40 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/01 20:00:45 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ void	key_controller(mlx_key_data_t keydata, void *param)
         if (keydata.key == MLX_KEY_W)
 			move(ex_utils, p->dir.x * MOV_SPEED, p->dir.y * MOV_SPEED);
 		if (keydata.key == MLX_KEY_A)
-			move(ex_utils, -p->dir.y * MOV_SPEED, p->dir.x * MOV_SPEED);
-        if (keydata.key == MLX_KEY_D)
 			move(ex_utils, p->dir.y * MOV_SPEED, -p->dir.x * MOV_SPEED);
+        if (keydata.key == MLX_KEY_D)
+			move(ex_utils, -p->dir.y * MOV_SPEED, p->dir.x * MOV_SPEED);
 		if (keydata.key == MLX_KEY_S)
 			move(ex_utils, -p->dir.x * MOV_SPEED, -p->dir.y * MOV_SPEED);
 	}
