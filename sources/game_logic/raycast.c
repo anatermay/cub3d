@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/20 23:52:23 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/01 19:13:20 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void init_dda(t_ex_utils *ex_utils, t_rayc *rayc)
     }
 }
 
-static void ex_dda(t_game *game, t_rayc *rayc)
+static void ex_dda(t_ex_utils *ex_utils, t_rayc *rayc)
 {
     int hit;
 
@@ -62,7 +62,7 @@ static void ex_dda(t_game *game, t_rayc *rayc)
             rayc->side.x = 0;
             rayc->side.y = 1;
         }
-        if (game->map->map[(int)rayc->map.y][(int)rayc->map.x] == '1')
+        if (ex_utils->map[(int)rayc->map.y][(int)rayc->map.x] == '1')
             hit = 1;
     }
 }
@@ -82,7 +82,7 @@ static void calc_wall_height(t_player player, t_rayc *rayc)
     rayc->wall_h = (int)(HEIGHT / rayc->perp);
 }
 
-void    rayc_loop(t_game *game, t_ex_utils *ex_utils)
+void    rayc_loop(t_ex_utils *ex_utils)
 {
     int     x;
     t_rayc  rayc;
@@ -92,9 +92,9 @@ void    rayc_loop(t_game *game, t_ex_utils *ex_utils)
     {
         init_rayc(ex_utils, &rayc, x);
         init_dda(ex_utils, &rayc);
-        ex_dda(game, &rayc);
+        ex_dda(ex_utils, &rayc);
         calc_wall_height(ex_utils->player, &rayc);
         draw_wall(ex_utils, &rayc, x);
     }
-    mlx_image_to_window(game->mlx, ex_utils->bg, 0, 0);
+    mlx_image_to_window(ex_utils->mlx, ex_utils->bg, 0, 0);
 }

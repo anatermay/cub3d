@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/10/21 22:39:34 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/01 19:13:06 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_vector
     double  y;
 }   t_vector;
 
-
 typedef struct  s_player
 {
     t_vector    pos;
@@ -43,12 +42,29 @@ typedef struct  s_player
     char        ori;
 }   t_player;
 
+typedef struct s_img_data
+{
+    mlx_texture_t	*tex;
+	mlx_image_t		*img;
+}   t_img_data;
+
+
+typedef struct  s_imgs
+{
+    t_img_data  NO;
+    t_img_data  EA;
+    t_img_data  SO;
+    t_img_data  WE;
+}   t_imgs;
+
 typedef struct  s_ex_utils
 {
     mlx_t       *mlx;
+    char        **map;
     mlx_image_t *bg;
     uint32_t    c_color;
     uint32_t    f_color;
+    t_imgs      imgs;
     t_player    player;
     t_vector    plane;
 }	t_ex_utils;
@@ -68,11 +84,10 @@ typedef struct  s_rayc
     int         draw_end;
 }   t_rayc;
 
-
-void	paint_bg(t_game* game, t_ex_utils *ex_utils);
-void	get_images(t_game *game);
+void	paint_bg(t_ex_utils *ex_utils);
 void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x);
 
-void    rayc_loop(t_game *game, t_ex_utils *ex_utils);
+void    rayc_loop(t_ex_utils *ex_utils);
+void	key_controller(mlx_key_data_t keydata, void *param);
 
 #endif
