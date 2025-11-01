@@ -52,7 +52,8 @@ SOURCES_FILES 			= main.c\
 							parser_utils/pu_split.c\
 							game_logic/start_game.c\
 							game_logic/display.c\
-							game_logic/raycast.c
+							game_logic/raycast.c\
+							game_logic/key_controller.c
 
 OBJECTS 			= $(addprefix $(OBJECTS_DIRECTORY)/, $(SOURCES_FILES:.c=.o))
 

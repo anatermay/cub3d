@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/01 19:17:09 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/01 19:39:37 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	start_game(t_game *game)
 	init_player(game, ex_utils);
 	init_camera(ex_utils);
 	rayc_loop(ex_utils);
-	//mlx_key_hook(game->mlx, key_controller, ex_utils);
+	mlx_key_hook(ex_utils->mlx, key_controller, ex_utils);
 	mlx_loop(ex_utils->mlx);
 	// if (game->collected == game->collects_total && game->exit)
 	// 	ft_printf("You won!\n");
