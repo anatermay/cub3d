@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/01 19:13:20 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/02 18:26:08 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,4 @@ void    rayc_loop(t_ex_utils *ex_utils)
         calc_wall_height(ex_utils->player, &rayc);
         draw_wall(ex_utils, &rayc, x);
     }
-    mlx_image_to_window(ex_utils->mlx, ex_utils->bg, 0, 0);
 }

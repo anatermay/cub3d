@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/01 19:39:37 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/02 18:26:23 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	build_bg(t_game *game, t_ex_utils *ex_utils)
 	g = game->floor->green;
 	b = game->floor->blue;
 	ex_utils->f_color = (r << 24 | g << 16 | b << 8 | a);
+	mlx_image_to_window(ex_utils->mlx, ex_utils->bg, 0, 0);
 }
 
 void	init_player(t_game *game, t_ex_utils *ex_utils)
