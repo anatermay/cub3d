@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/01 19:13:06 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/02 19:49:28 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,10 @@ void	paint_bg(t_ex_utils *ex_utils);
 void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x);
 
 void    rayc_loop(t_ex_utils *ex_utils);
-void	key_controller(mlx_key_data_t keydata, void *param);
+void	mov_loop(void *param);
+void	move(t_ex_utils *ex_utils, double move_x, double move_y);
+void	rotate(t_ex_utils *ex_utils, double rot);
+
+//void	key_controller(mlx_key_data_t keydata, void *param);
 
 #endif

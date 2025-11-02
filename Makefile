@@ -53,7 +53,8 @@ SOURCES_FILES 			= main.c\
 							game_logic/start_game.c\
 							game_logic/display.c\
 							game_logic/raycast.c\
-							game_logic/key_controller.c
+							game_logic/mov_handler.c\
+							game_logic/mov_loop.c
 
 OBJECTS 			= $(addprefix $(OBJECTS_DIRECTORY)/, $(SOURCES_FILES:.c=.o))
 
