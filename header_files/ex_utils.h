@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/02 20:50:18 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:57:18 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # define OPACITY 255
 # define FOV 66.0
 
-# define MOV_SPEED 0.05
-# define ROT_SPEED 0.03
+# define MOV_SPEED 0.03
+# define ROT_SPEED 0.02
 
 # include "cub3d.h"
 # include <math.h>
