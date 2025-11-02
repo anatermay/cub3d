@@ -51,10 +51,10 @@ SOURCES_FILES 			= main.c\
 							parser_utils/pu_space.c\
 							parser_utils/pu_split.c\
 							game_logic/start_game.c\
-							game_logic/display.c\
-							game_logic/raycast.c\
-							game_logic/mov_handler.c\
-							game_logic/mov_loop.c
+							display/display.c\
+							display/raycast.c\
+							movement/mov_handler.c\
+							movement/mov_loop.c
 
 OBJECTS 			= $(addprefix $(OBJECTS_DIRECTORY)/, $(SOURCES_FILES:.c=.o))
 
