@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/08 19:57:51 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:24:47 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
-
-# define TEX_W 64
-# define TEX_H 64
 
 # define OPACITY 255
 # define FOV 66.0
@@ -59,6 +56,15 @@ typedef struct  s_imgs
     t_img_data  SO;
     t_img_data  WE;
 }   t_imgs;
+
+typedef struct  s_dr_utils
+{
+    mlx_texture_t   *tex;
+    int             y;
+    int             x;
+    int             tex_y;
+    int             tex_x;
+}   t_dr_utils;
 
 typedef struct  s_ex_utils
 {
