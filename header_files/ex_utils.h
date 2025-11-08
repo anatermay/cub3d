@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/02 20:57:18 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/08 19:57:51 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
+
+# define TEX_W 64
+# define TEX_H 64
 
 # define OPACITY 255
 # define FOV 66.0
@@ -80,6 +83,7 @@ typedef struct  s_rayc
     t_vector    side;
     double      perp;
     int         wall_h;
+    double      wall_x;
     int         draw_start;
     int         draw_end;
 }   t_rayc;

@@ -6,14 +6,14 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/02 19:54:39 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/08 19:51:21 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "ex_utils.h"
 
-static void	get_images(t_game *game, t_ex_utils *ex_utils)
+static void	get_imgs(t_game *game, t_ex_utils *ex_utils)
 {
 	ex_utils->imgs.NO.tex = mlx_load_png(game->north->tex->tex);
 	ex_utils->imgs.SO.tex = mlx_load_png(game->south->tex->tex);
@@ -79,7 +79,7 @@ void	start_game(t_game *game)
 	ex_utils = malloc(sizeof(t_ex_utils));
 	ex_utils->map = game->map->map;
 	ex_utils->mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true);
-	get_images(game, ex_utils);
+	get_imgs(game, ex_utils);
 	build_bg(game, ex_utils);
 	paint_bg(ex_utils);
 	init_player(game, ex_utils);

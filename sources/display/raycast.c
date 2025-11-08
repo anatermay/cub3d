@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/02 18:26:08 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/08 19:57:05 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,13 @@ static void calc_wall_height(t_player player, t_rayc *rayc)
     {
         rayc->perp = (rayc->map.x - player.pos.x\
                         + (1 - rayc->step.x) / 2) / rayc->dir.x;
+        rayc->wall_x = player.pos.y + rayc->perp * rayc->dir.y;
     }
     else
     {
         rayc->perp = (rayc->map.y - player.pos.y\
                         + (1 - rayc->step.y) / 2) / rayc->dir.y;
+        rayc->wall_x = player.pos.x + rayc->perp * rayc->dir.x;
     }
     rayc->wall_h = (int)(HEIGHT / rayc->perp);
 }
