@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/11 11:40:04 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/11 12:27:36 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ void	start_game(t_game *game)
 	t_ex_utils	*ex_utils;
 
 	ex_utils = malloc(sizeof(t_ex_utils));
+    if (!ex_utils)
+    {
+        return ;
+    }
 	ex_utils->map = game->map->map;
 	ex_utils->mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true);
 	get_imgs(game, ex_utils);

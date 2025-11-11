@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:24:08 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/28 10:26:32 by aternero         ###   ########.fr       */
+/*   Updated: 2025/11/11 12:38:15 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ typedef struct s_boolean
 typedef struct s_texture
 {
 	char			*tex;
-	mlx_texture_t	*text;
-	mlx_image_t		*img;
 }	t_texture;
 
 typedef struct s_vert

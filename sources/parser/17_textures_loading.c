@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   17_textures_loading.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:59:35 by aternero          #+#    #+#             */
-/*   Updated: 2025/10/08 20:12:35 by aternero         ###   ########.fr       */
+/*   Updated: 2025/11/11 12:38:21 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ static int	loading_texture_textures(t_coord *coord)
 		|| coord->tex->tex[length - 2] != 'p'
 		|| coord->tex->tex[length - 3] != '.')
 		return (print_error("Texture is not a PNG."));
-	coord->tex->text = mlx_load_png(coord->tex->tex);
-	if (!coord->tex->text)
-		return (print_error("Failed to load texture"));
 	return (TRUE);
 }
 
