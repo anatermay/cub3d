@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/11 10:29:51 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/11 11:40:04 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	start_game(t_game *game)
 	rayc_loop(ex_utils);
 	mlx_loop_hook(ex_utils->mlx, mov_loop, ex_utils);
 	mlx_loop(ex_utils->mlx);
+	free_images(ex_utils);
 	mlx_terminate(ex_utils->mlx);
 	free(ex_utils);
 }

@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/11 10:22:45 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/11 11:16:21 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,7 @@ void	rotate(t_ex_utils *ex_utils, double rot);
 
 void    rayc_loop(t_ex_utils *ex_utils);
 void	mov_loop(void *param);
+
+void    free_images(t_ex_utils *ex_utils);
 
 #endif

@@ -54,7 +54,8 @@ SOURCES_FILES 			= main.c\
 							display/display.c\
 							display/raycast.c\
 							movement/mov_handler.c\
-							movement/mov_loop.c
+							movement/mov_loop.c\
+							free.c
 
 OBJECTS 			= $(addprefix $(OBJECTS_DIRECTORY)/, $(SOURCES_FILES:.c=.o))
 
