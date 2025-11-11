@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/08 21:24:38 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/11 10:23:30 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,16 @@ static void	dr_pixels(t_ex_utils *ex_utils, t_rayc *rayc, t_dr_utils dr_utils)
 	{
 		dr_utils.tex_y = (int)tex_pos & (dr_utils.tex->height - 1);
 		tex_pos += step;
+		if (dr_utils.tex_x >= dr_utils.tex->width ||
+			dr_utils.tex_y >= dr_utils.tex->height)
+		{
+			return;
+		}
 		ind = (dr_utils.tex_y * dr_utils.tex->width + dr_utils.tex_x) * 4;
 		color = (dr_utils.tex->pixels[ind] << 24)
 			| (dr_utils.tex->pixels[ind + 1] << 16)
 			| (dr_utils.tex->pixels[ind + 2] << 8)
 			| dr_utils.tex->pixels[ind + 3];
-
 		mlx_put_pixel(ex_utils->bg, dr_utils.x, dr_utils.y, color);
 	}
 }
