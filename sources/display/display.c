@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/13 16:30:38 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:29:49 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ static mlx_texture_t	*get_tex_by_side(t_ex_utils *ex_utils, t_rayc *rayc)
 {
 	mlx_texture_t	*tex;
 
-	tex = ex_utils->imgs.NO.tex;
+	tex = ex_utils->imgs.no.tex;
 	if (rayc->side.x && rayc->step.x > 0)
-		tex = ex_utils->imgs.EA.tex;
+		tex = ex_utils->imgs.ea.tex;
 	else if (rayc->side.x && rayc->step.x < 0)
-		tex = ex_utils->imgs.WE.tex;
+		tex = ex_utils->imgs.we.tex;
 	else
-		tex = ex_utils->imgs.SO.tex;
+		tex = ex_utils->imgs.so.tex;
 	return (tex);
 }
 

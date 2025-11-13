@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/13 16:40:47 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:29:25 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 static void	get_imgs(t_game *game, t_ex_utils *ex_utils)
 {
-	ex_utils->imgs.NO.tex = mlx_load_png(game->north->tex->tex);
-	ex_utils->imgs.SO.tex = mlx_load_png(game->south->tex->tex);
-	ex_utils->imgs.WE.tex = mlx_load_png(game->west->tex->tex);
-	ex_utils->imgs.EA.tex = mlx_load_png(game->east->tex->tex);
-	ex_utils->imgs.NO.img = mlx_texture_to_image(ex_utils->mlx,
-			ex_utils->imgs.NO.tex);
-	ex_utils->imgs.SO.img = mlx_texture_to_image(ex_utils->mlx,
-			ex_utils->imgs.SO.tex);
-	ex_utils->imgs.WE.img = mlx_texture_to_image(ex_utils->mlx,
-			ex_utils->imgs.WE.tex);
-	ex_utils->imgs.EA.img = mlx_texture_to_image(ex_utils->mlx,
-			ex_utils->imgs.EA.tex);
+	ex_utils->imgs.no.tex = mlx_load_png(game->north->tex->tex);
+	ex_utils->imgs.so.tex = mlx_load_png(game->south->tex->tex);
+	ex_utils->imgs.we.tex = mlx_load_png(game->west->tex->tex);
+	ex_utils->imgs.ea.tex = mlx_load_png(game->east->tex->tex);
+	ex_utils->imgs.no.img = mlx_texture_to_image(ex_utils->mlx,
+			ex_utils->imgs.no.tex);
+	ex_utils->imgs.so.img = mlx_texture_to_image(ex_utils->mlx,
+			ex_utils->imgs.so.tex);
+	ex_utils->imgs.we.img = mlx_texture_to_image(ex_utils->mlx,
+			ex_utils->imgs.we.tex);
+	ex_utils->imgs.ea.img = mlx_texture_to_image(ex_utils->mlx,
+			ex_utils->imgs.ea.tex);
 }
 
 static void	build_bg(t_game *game, t_ex_utils *ex_utils)

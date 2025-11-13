@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 20:49:58 by aternero          #+#    #+#             */
-/*   Updated: 2025/10/08 20:09:14 by aternero         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:04:01 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static char	**arraydup(char **map)
 	ret = (char **)malloc(sizeof(char *) * (index + 1));
 	if (!ret)
 		return (NULL);
-	index = 0;
-	while (map[index])
-		ret[index] = ft_strdup(map[index]), index++;
+	index = -1;
+	while (map[++index])
+		ret[index] = ft_strdup(map[index]);
 	ret[index] = NULL;
 	return (ret);
 }

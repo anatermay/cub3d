@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:24:08 by aternero          #+#    #+#             */
-/*   Updated: 2025/11/11 12:38:15 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:22:35 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include "macros.h"
 # include "msg.h"
 # include "../MLX42/include/MLX42/MLX42.h"
-//# include "./MLX42/MLX42.h"
 
 //	**	STRUCTURES	**
 
@@ -132,7 +131,7 @@ int		process_vertical(t_game *game, char **line);
 int		process_map(t_game *game, t_file *start);
 
 // 12_extract_map.c
-char 	**extract_map(t_file *start);
+char	**extract_map(t_file *start);
 
 // 13_map_check.c
 int		map_check(t_game *game);

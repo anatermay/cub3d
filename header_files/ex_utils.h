@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ex_utils.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/11 11:16:21 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:28:49 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,78 +31,77 @@
 
 typedef struct s_vector
 {
-    double  x;
-    double  y;
-}   t_vector;
+	double			x;
+	double			y;
+}					t_vector;
 
-typedef struct  s_player
+typedef struct s_player
 {
-    t_vector    pos;
-    t_vector    dir;
-    char        ori;
-}   t_player;
+	t_vector		pos;
+	t_vector		dir;
+	char			ori;
+}					t_player;
 
 typedef struct s_img_data
 {
-    mlx_texture_t	*tex;
+	mlx_texture_t	*tex;
 	mlx_image_t		*img;
-}   t_img_data;
+}					t_img_data;
 
-
-typedef struct  s_imgs
+typedef struct s_imgs
 {
-    t_img_data  NO;
-    t_img_data  EA;
-    t_img_data  SO;
-    t_img_data  WE;
-}   t_imgs;
-
-typedef struct  s_dr_utils
+	t_img_data		no;
+	t_img_data		ea;
+	t_img_data		so;
+	t_img_data		we;
+}					t_imgs;
+typedef struct s_dr_utils
 {
-    mlx_texture_t   *tex;
-    int             y;
-    int             x;
-    uint32_t        tex_y;
-    uint32_t        tex_x;
-}   t_dr_utils;
+	mlx_texture_t	*tex;
+	int				y;
+	int				x;
+	uint32_t		tex_y;
+	uint32_t		tex_x;
+}					t_dr_utils;
 
-typedef struct  s_ex_utils
+typedef struct s_ex_utils
 {
-    mlx_t       *mlx;
-    char        **map;
-    mlx_image_t *bg;
-    uint32_t    c_color;
-    uint32_t    f_color;
-    t_imgs      imgs;
-    t_player    player;
-    t_vector    plane;
-}	t_ex_utils;
+	mlx_t			*mlx;
+	char			**map;
+	mlx_image_t		*bg;
+	uint32_t		c_color;
+	uint32_t		f_color;
+	t_imgs			imgs;
+	t_player		player;
+	t_vector		plane;
+}					t_ex_utils;
 
-typedef struct  s_rayc
+typedef struct s_rayc
 {
-    double      pos_x;
-    t_vector    map;
-	t_vector    dir;
-    t_vector    delt;
-    t_vector    step;
-    t_vector    dist;
-    t_vector    side;
-    double      perp;
-    int         wall_h;
-    double      wall_x;
-    int         draw_start;
-    int         draw_end;
-}   t_rayc;
+	double			pos_x;
+	t_vector		map;
+	t_vector		dir;
+	t_vector		delt;
+	t_vector		step;
+	t_vector		dist;
+	t_vector		side;
+	double			perp;
+	int				wall_h;
+	double			wall_x;
+	int				draw_start;
+	int				draw_end;
+}					t_rayc;
 
+// EX_UTILS FUNCTIONS
 void	paint_bg(t_ex_utils *ex_utils);
 void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x);
-
+// Movement and Rotation
 void	move(t_ex_utils *ex_utils, double move_x, double move_y);
 void	rotate(t_ex_utils *ex_utils, double rot);
-
-void    rayc_loop(t_ex_utils *ex_utils);
+// Main Loops
+void	rayc_loop(t_ex_utils *ex_utils);
 void	mov_loop(void *param);
-
-void    free_images(t_ex_utils *ex_utils);
+// Freeing
+void	free_images(t_ex_utils *ex_utils);
 
 #endif
