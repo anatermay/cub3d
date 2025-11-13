@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/11 12:27:36 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:40:47 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ static void	get_imgs(t_game *game, t_ex_utils *ex_utils)
 	ex_utils->imgs.WE.tex = mlx_load_png(game->west->tex->tex);
 	ex_utils->imgs.EA.tex = mlx_load_png(game->east->tex->tex);
 	ex_utils->imgs.NO.img = mlx_texture_to_image(ex_utils->mlx,
-		ex_utils->imgs.NO.tex);
+			ex_utils->imgs.NO.tex);
 	ex_utils->imgs.SO.img = mlx_texture_to_image(ex_utils->mlx,
-		ex_utils->imgs.SO.tex);
+			ex_utils->imgs.SO.tex);
 	ex_utils->imgs.WE.img = mlx_texture_to_image(ex_utils->mlx,
-		ex_utils->imgs.WE.tex);
+			ex_utils->imgs.WE.tex);
 	ex_utils->imgs.EA.img = mlx_texture_to_image(ex_utils->mlx,
-		ex_utils->imgs.EA.tex);
+			ex_utils->imgs.EA.tex);
 }
 
 static void	build_bg(t_game *game, t_ex_utils *ex_utils)
@@ -77,10 +77,10 @@ void	start_game(t_game *game)
 	t_ex_utils	*ex_utils;
 
 	ex_utils = malloc(sizeof(t_ex_utils));
-    if (!ex_utils)
-    {
-        return ;
-    }
+	if (!ex_utils)
+	{
+		return ;
+	}
 	ex_utils->map = game->map->map;
 	ex_utils->mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true);
 	get_imgs(game, ex_utils);

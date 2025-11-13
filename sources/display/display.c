@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/11 12:45:49 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:30:38 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	dr_pixels(t_ex_utils *ex_utils, t_rayc *rayc, t_dr_utils dr_utils)
 	uint32_t	color;
 	double		tex_pos;
 	double		step;
-	int 		ind;
+	int			ind;
 
 	step = (double)dr_utils.tex->height / rayc->wall_h;
 	tex_pos = (rayc->draw_start - HEIGHT / 2 + rayc->wall_h / 2) * step;
@@ -84,6 +84,6 @@ void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x)
 	dr_utils.y = rayc->draw_start - 1;
 	dr_utils.tex_x = (int)(rayc->wall_x * dr_utils.tex->width);
 	if ((rayc->side.x && rayc->dir.x > 0) || (rayc->side.y && rayc->dir.y < 0))
-    	dr_utils.tex_x = dr_utils.tex->width - dr_utils.tex_x - 1;
+		dr_utils.tex_x = dr_utils.tex->width - dr_utils.tex_x - 1;
 	dr_pixels(ex_utils, rayc, dr_utils);
 }
