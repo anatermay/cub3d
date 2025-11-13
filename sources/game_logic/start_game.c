@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/13 18:29:25 by aternero         ###   ########.fr       */
+/*   Updated: 2025/11/13 19:23:04 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	start_game(t_game *game)
 		return ;
 	}
 	ex_utils->map = game->map->map;
+	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	ex_utils->mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true);
 	get_imgs(game, ex_utils);
 	build_bg(game, ex_utils);
