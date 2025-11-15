@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 18:16:41 by aternero          #+#    #+#             */
-/*   Updated: 2025/09/17 18:28:19 by aternero         ###   ########.fr       */
+/*   Updated: 2025/11/13 20:41:00 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ static int	check_color(char *str)
 	}
 	nbr = ft_atoi(str);
 	if (nbr < 0 || nbr > 255)
-		return (print_error(ECOLINV));
+	{
+		print_error(ECLR);
+		return (-1);
+	}
 	return (nbr);
 }
 

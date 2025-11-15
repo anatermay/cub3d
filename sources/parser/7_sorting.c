@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:27:13 by aternero          #+#    #+#             */
-/*   Updated: 2025/10/07 20:02:30 by aternero         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:03:24 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	is_map_line(char *line)
 {
 	int	index;
-	int is_map;
+	int	is_map;
 	int	chars;
 
 	index = -1;
@@ -26,7 +26,7 @@ static int	is_map_line(char *line)
 		if (is_space(line[index]) == FALSE)
 		{
 			if (line[index] == '0' || line[index] == '1'
-					|| is_position(line[index]) == TRUE)
+				|| is_position(line[index]) == TRUE)
 				is_map++;
 			chars++;
 		}

@@ -6,7 +6,7 @@
 /*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 20:45:04 by aternero          #+#    #+#             */
-/*   Updated: 2025/10/07 20:13:31 by aternero         ###   ########.fr       */
+/*   Updated: 2025/11/13 20:15:37 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ int	process_map(t_game *game, t_file *start)
 	game->map->map = extract_map(start);
 	if (!game->map->map)
 		return (FALSE);
+	game->map->dim = calculate_map_dim(game->map->map);
 	if (map_check(game) == FALSE)
 		return (FALSE);
-	game->map->dim = calculate_map_dim(game->map->map);
 	game->map->player = calculate_player_position(game->map->map);
 	if (game->map->player.y == -1 || game->map->player.x == -1)
 		return (print_error(EPPO));

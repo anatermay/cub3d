@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/15 13:17:05 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/15 13:45:05 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	start_game(t_game *game)
         return ;
 	}
 	ex_utils->map = game->map->map;
+	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	ex_utils->mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true);
 	err_lvl = load_imgs(game, ex_utils);
 	if (!err_lvl)

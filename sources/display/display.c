@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/11 12:45:49 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:29:49 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ static mlx_texture_t	*get_tex_by_side(t_ex_utils *ex_utils, t_rayc *rayc)
 {
 	mlx_texture_t	*tex;
 
-	tex = ex_utils->imgs.NO.tex;
+	tex = ex_utils->imgs.no.tex;
 	if (rayc->side.x && rayc->step.x > 0)
-		tex = ex_utils->imgs.EA.tex;
+		tex = ex_utils->imgs.ea.tex;
 	else if (rayc->side.x && rayc->step.x < 0)
-		tex = ex_utils->imgs.WE.tex;
+		tex = ex_utils->imgs.we.tex;
 	else
-		tex = ex_utils->imgs.SO.tex;
+		tex = ex_utils->imgs.so.tex;
 	return (tex);
 }
 
@@ -52,7 +52,7 @@ static void	dr_pixels(t_ex_utils *ex_utils, t_rayc *rayc, t_dr_utils dr_utils)
 	uint32_t	color;
 	double		tex_pos;
 	double		step;
-	int 		ind;
+	int			ind;
 
 	step = (double)dr_utils.tex->height / rayc->wall_h;
 	tex_pos = (rayc->draw_start - HEIGHT / 2 + rayc->wall_h / 2) * step;
@@ -84,6 +84,6 @@ void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x)
 	dr_utils.y = rayc->draw_start - 1;
 	dr_utils.tex_x = (int)(rayc->wall_x * dr_utils.tex->width);
 	if ((rayc->side.x && rayc->dir.x > 0) || (rayc->side.y && rayc->dir.y < 0))
-    	dr_utils.tex_x = dr_utils.tex->width - dr_utils.tex_x - 1;
+		dr_utils.tex_x = dr_utils.tex->width - dr_utils.tex_x - 1;
 	dr_pixels(ex_utils, rayc, dr_utils);
 }

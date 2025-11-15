@@ -41,6 +41,45 @@ Este proyecto implementa un **parser** para archivos `.cub` del proyecto **cub3D
 └─────────────────────────────────────────────────────────────┘
 ```
 
+## DISCLAIMER!! ⚠️
+
+He preguntado a Claude AI cuáles de los errores de valgrind pueden ser ajenos a la MLX42. La respuesta ha sido:
+
+```
+
+Valgrind reporta 0 bytes "definitely lost" (es decir, no hay fugas categorizadas como definitivamente perdidas).
+Hay 317,955 bytes en 3,106 bloques “still reachable”.
+Tus grep previos muestran muchas trazas que pasan por mlx_load_png, mlx_init, mlx_loop, mlx_terminate (todas en tu ejecutable), lo cual significa que las asignaciones están asociadas a código que involucra MLX42 o sus dependencias.
+¿Qué significa eso y qué es probablemente ajeno a MLX42?
+
+Las entradas "still reachable" suelen ser inofensivas en bibliotecas de terceros: a menudo son estructuras/caches/objetos que la librería inicializa y deja hasta el final del proceso (se liberarían al exit), o recursos mantenidos por drivers/GLFW/OpenGL. Por tanto la mayoría (o casi todas) de esas ~318 KB "still reachable" pueden ser ajenas a un bug en tu código y en su lugar ser:
+Memoria reservada por MLX42 (p. ej. estructuras internas, tablas, textos, caches) y/o por bibliotecas embebidas en MLX42 (lodepng, glad, glfw). MLX42 incluye lodepng, glad y usa glfw, así que es plausible.
+Recursos retenidos por el controlador gráfico (OpenGL) o por GLFW/glad; valgrind a menudo muestra "still reachable" por esos.
+Datos que tu programa carga (texturas PNG) y que no se liberaron explícitamente antes de exit — esto sería tu responsabilidad, pero seguiría apareciendo como "still reachable" en vez de "definitely lost" si el programa termina y sigue referenciándolos.
+Qué NO parece indicar el log
+
+No hay "definitely lost" (0 bytes). Eso es buena señal: no hay fugas claras y confirmadas por Valgrind dentro de las rutas que registró.
+Por tanto no hay evidencia de fugas graves causadas por tu código o por MLX42 en la ejecución que generó ese log.
+Acciones concretas y recomendaciones
+
+Interpretación práctica:
+
+La mayoría de los registros que muestran mlx_init, mlx_load_png, mlx_loop, etc. muy probablemente indican memoria retenida por MLX42 o sus dependencias (lodepng/glfw/glad/GL), o por recursos que no se liberaron explícitamente antes de terminar.
+Dado que "definitely lost" = 0, no hay fugas confirmadas. No parece que exista un bug severo de leak en MLX42 ni en tu código en esta corrida.
+Cómo confirmarlo (si quieres estar 100% seguro):
+
+Extrae uno o dos backtraces completos clasificados como “still reachable” que muestren la cadena de llamadas y fíjate si el stack termina en funciones de lodepng/glfw/glad/libGL o en funciones de MLX42 que gestionan caches. Si terminan en librerías externas/GLFW, es externo.
+Busca en el log entradas de bibliotecas: nombres como libglfw, libGL, lodepng, malloc/new inside those libs. Ejemplo:
+grep -nE "lodepng|glfw|libGL|glad|png" valgrind.log
+Ejecutar Valgrind con supresiones para GLFW/GL (valgrind puede generar falsos positivos para OpenGL drivers). MLX42 repo puede incluir una supresión; si no, puedes crear una.
+Si quieres que lo investigue más:
+
+Puedo extraer un par de trazas representativas "still reachable" desde valgrind.log y decir específicamente si terminan en MLX42 puro o en dependencias/driver. Dime si quieres que haga eso y lo saco aquí.
+Resumen final (respuesta directa a tu pregunta)
+
+¿Cuáles de estos errores pueden ser ajenos a la #file:MLX42? La gran mayoría: las ~318 KB "still reachable" probablemente provienen de MLX42 y/o de sus dependencias (lodepng, glad, GLFW y el controlador gráfico). Además, "still reachable" frecuentemente no es un problema real — es memoria retenida hasta el final por librerías/driver. No hay "definitely lost", por lo que no hay fugas claras atribuidas a MLX42 ni a tu código en este run.
+```
+
 ## Estructuras de Datos
 
 ### 🏗️ Estructura Principal: `t_game`
