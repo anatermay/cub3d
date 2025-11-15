@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/15 13:43:24 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/15 13:47:17 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_imgs
 	t_img_data		so;
 	t_img_data		we;
 }					t_imgs;
+
 typedef struct s_dr_utils
 {
 	mlx_texture_t	*tex;
