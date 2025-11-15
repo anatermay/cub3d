@@ -6,30 +6,14 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:29:12 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/11 12:27:36 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/15 13:17:05 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "ex_utils.h"
 
-static void	get_imgs(t_game *game, t_ex_utils *ex_utils)
-{
-	ex_utils->imgs.NO.tex = mlx_load_png(game->north->tex->tex);
-	ex_utils->imgs.SO.tex = mlx_load_png(game->south->tex->tex);
-	ex_utils->imgs.WE.tex = mlx_load_png(game->west->tex->tex);
-	ex_utils->imgs.EA.tex = mlx_load_png(game->east->tex->tex);
-	ex_utils->imgs.NO.img = mlx_texture_to_image(ex_utils->mlx,
-		ex_utils->imgs.NO.tex);
-	ex_utils->imgs.SO.img = mlx_texture_to_image(ex_utils->mlx,
-		ex_utils->imgs.SO.tex);
-	ex_utils->imgs.WE.img = mlx_texture_to_image(ex_utils->mlx,
-		ex_utils->imgs.WE.tex);
-	ex_utils->imgs.EA.img = mlx_texture_to_image(ex_utils->mlx,
-		ex_utils->imgs.EA.tex);
-}
-
-static void	build_bg(t_game *game, t_ex_utils *ex_utils)
+void	build_bg(t_game *game, t_ex_utils *ex_utils)
 {
 	unsigned int	r;
 	unsigned int	g;
@@ -75,23 +59,19 @@ void	init_camera(t_ex_utils *ex_utils)
 void	start_game(t_game *game)
 {
 	t_ex_utils	*ex_utils;
+	int			err_lvl;
 
 	ex_utils = malloc(sizeof(t_ex_utils));
     if (!ex_utils)
-    {
+	{
         return ;
-    }
+	}
 	ex_utils->map = game->map->map;
 	ex_utils->mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true);
-	get_imgs(game, ex_utils);
-	build_bg(game, ex_utils);
-	paint_bg(ex_utils);
-	init_player(game, ex_utils);
-	init_camera(ex_utils);
-	rayc_loop(ex_utils);
-	mlx_loop_hook(ex_utils->mlx, mov_loop, ex_utils);
-	mlx_loop(ex_utils->mlx);
-	free_images(ex_utils);
-	mlx_terminate(ex_utils->mlx);
+	err_lvl = load_imgs(game, ex_utils);
+	if (!err_lvl)
+		run_game(game, ex_utils);
+	else
+		free_images(ex_utils, err_lvl);
 	free(ex_utils);
 }

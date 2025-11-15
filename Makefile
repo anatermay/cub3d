@@ -51,6 +51,8 @@ SOURCES_FILES 			= main.c\
 							parser_utils/pu_space.c\
 							parser_utils/pu_split.c\
 							game_logic/start_game.c\
+							game_logic/run_game.c\
+							display/load_imgs.c\
 							display/display.c\
 							display/raycast.c\
 							movement/mov_handler.c\

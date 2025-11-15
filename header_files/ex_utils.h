@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/11 11:16:21 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/15 13:17:52 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,13 @@ typedef struct  s_rayc
     int         draw_end;
 }   t_rayc;
 
+int		load_imgs(t_game *game, t_ex_utils *ex_utils);
+void	build_bg(t_game *game, t_ex_utils *ex_utils);
 void	paint_bg(t_ex_utils *ex_utils);
 void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x);
+
+void	init_player(t_game *game, t_ex_utils *ex_utils);
+void	init_camera(t_ex_utils *ex_utils);
 
 void	move(t_ex_utils *ex_utils, double move_x, double move_y);
 void	rotate(t_ex_utils *ex_utils, double rot);
@@ -103,6 +108,7 @@ void	rotate(t_ex_utils *ex_utils, double rot);
 void    rayc_loop(t_ex_utils *ex_utils);
 void	mov_loop(void *param);
 
-void    free_images(t_ex_utils *ex_utils);
+void	run_game(t_game *game, t_ex_utils *ex_utils);
+void	free_images(t_ex_utils *ex_utils, int err_lvl);
 
 #endif
