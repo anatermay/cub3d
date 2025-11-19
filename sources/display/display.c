@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/13 18:29:49 by aternero         ###   ########.fr       */
+/*   Updated: 2025/11/19 14:28:49 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static mlx_texture_t	*get_tex_by_side(t_ex_utils *ex_utils, t_rayc *rayc)
 		tex = ex_utils->imgs.ea.tex;
 	else if (rayc->side.x && rayc->step.x < 0)
 		tex = ex_utils->imgs.we.tex;
-	else
+	else if (rayc->side.y && rayc->step.y < 0)
 		tex = ex_utils->imgs.so.tex;
 	return (tex);
 }
@@ -53,14 +53,21 @@ static void	dr_pixels(t_ex_utils *ex_utils, t_rayc *rayc, t_dr_utils dr_utils)
 	double		tex_pos;
 	double		step;
 	int			ind;
+	int			max_pixels;
 
 	step = (double)dr_utils.tex->height / rayc->wall_h;
 	tex_pos = (rayc->draw_start - HEIGHT / 2 + rayc->wall_h / 2) * step;
+	max_pixels = dr_utils.tex->width * dr_utils.tex->height\
+			* dr_utils.tex->bytes_per_pixel;
 	while (++(dr_utils.y) < rayc->draw_end)
 	{
 		dr_utils.tex_y = (int)tex_pos & (dr_utils.tex->height - 1);
 		tex_pos += step;
 		ind = (dr_utils.tex_y * dr_utils.tex->width + dr_utils.tex_x) * 4;
+		if (ind < 0)
+			ind = 0;
+		else if (ind > max_pixels)
+			ind = max_pixels - 1;
 		color = (dr_utils.tex->pixels[ind] << 24)
 			| (dr_utils.tex->pixels[ind + 1] << 16)
 			| (dr_utils.tex->pixels[ind + 2] << 8)

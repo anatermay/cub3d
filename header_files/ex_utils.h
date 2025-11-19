@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:05:26 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/15 13:47:17 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/19 10:58:27 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ typedef struct s_dr_utils
 	mlx_texture_t	*tex;
 	int				y;
 	int				x;
-	uint32_t		tex_y;
-	uint32_t		tex_x;
+	int				tex_y;
+	int				tex_x;
 }					t_dr_utils;
 
 typedef struct s_ex_utils
