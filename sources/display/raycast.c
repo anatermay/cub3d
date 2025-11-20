@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aternero <aternero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:40:02 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/13 16:39:19 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/20 14:31:14 by aternero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ static void	calc_wall_height(t_player player, t_rayc *rayc)
 				+ (1 - rayc->step.y) / 2) / rayc->dir.y;
 		rayc->wall_x = player.pos.x + rayc->perp * rayc->dir.x;
 	}
+	rayc->wall_x -= floor(rayc->wall_x);
 	rayc->wall_h = (int)(HEIGHT / rayc->perp);
 }
 
