@@ -6,7 +6,7 @@
 /*   By: jsanz-bo <jsanz-bo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:11:04 by jsanz-bo          #+#    #+#             */
-/*   Updated: 2025/11/20 14:41:41 by jsanz-bo         ###   ########.fr       */
+/*   Updated: 2025/11/20 14:47:45 by jsanz-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	draw_wall(t_ex_utils *ex_utils, t_rayc *rayc, int x)
 		rayc->draw_end = HEIGHT - 1;
 	dr_utils.y = rayc->draw_start - 1;
 	dr_utils.tex_x = (int)(rayc->wall_x * dr_utils.tex->width);
-	if ((rayc->side.x && rayc->dir.x > 0) || (rayc->side.y && rayc->dir.y < 0))
+	if ((rayc->side.x && rayc->dir.x < 0) || (rayc->side.y && rayc->dir.y > 0))
 		dr_utils.tex_x = dr_utils.tex->width - dr_utils.tex_x - 1;
 	dr_pixels(ex_utils, rayc, dr_utils);
 }
