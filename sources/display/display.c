@@ -57,8 +57,8 @@ static void	dr_pixels(t_ex_utils *ex_utils, t_rayc *rayc, t_dr_utils dr_utils)
 
 	step = (double)dr_utils.tex->height / rayc->wall_h;
 	tex_pos = (rayc->draw_start - HEIGHT / 2 + rayc->wall_h / 2) * step;
-	max_pixels = dr_utils.tex->width * dr_utils.tex->height\
-			* dr_utils.tex->bytes_per_pixel;
+	max_pixels = dr_utils.tex->width * dr_utils.tex->height
+		* dr_utils.tex->bytes_per_pixel;
 	while (++(dr_utils.y) < rayc->draw_end)
 	{
 		dr_utils.tex_y = (int)tex_pos & (dr_utils.tex->height - 1);
