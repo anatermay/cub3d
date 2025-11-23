@@ -1,6 +1,0 @@
-NO ./path_to_north_texture.xpm
-SO ./path_to_south_texture.xpm
-WE ./path_to_west_texture.xpm
-EA ./path_to_east_texture.xpm
-F -10,100,0
-C 225,30,0
